@@ -1,0 +1,10 @@
+<h3>edit profile here</h3>
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :location %>
+  <%= f.input :pronouns %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Home", root_path %>
