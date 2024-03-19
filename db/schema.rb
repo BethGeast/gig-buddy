@@ -36,12 +36,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_19_122434) do
 
   create_table "matches", force: :cascade do |t|
     t.boolean "matched"
-    t.bigint "first_profile_id_id"
-    t.bigint "second_profile_id_id"
+    t.bigint "first_profile_id"
+    t.bigint "second_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["first_profile_id_id"], name: "index_matches_on_first_profile_id_id"
-    t.index ["second_profile_id_id"], name: "index_matches_on_second_profile_id_id"
+    t.index ["first_profile_id"], name: "index_matches_on_first_profile_id"
+    t.index ["second_profile_id"], name: "index_matches_on_second_profile_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -96,8 +96,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_19_122434) do
   end
 
   add_foreign_key "events", "artists"
-  add_foreign_key "matches", "profiles", column: "first_profile_id_id"
-  add_foreign_key "matches", "profiles", column: "second_profile_id_id"
+  add_foreign_key "matches", "profiles", column: "first_profile_id"
+  add_foreign_key "matches", "profiles", column: "second_profile_id"
   add_foreign_key "messages", "matches"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
