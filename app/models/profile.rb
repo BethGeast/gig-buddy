@@ -13,4 +13,18 @@ class Profile < ApplicationRecord
   def matches
     first_profile_matches + second_profile_matches
   end
+
+  # def speaks_any?(these_languages)
+  #   these_languages.intersect?(self.languages)
+  # end
+
+  # def listens_to_any?(these_artists)
+  #   these_artists.intersect?(self.artists)
+  # end
+
+  def find_match(their_profile)
+    match = Match.find_by(first_profile: self, second_profile: their_profile)
+    match = Match.find_by(first_profile: their_profile, second_profile: self) unless match
+    return match
+  end
 end

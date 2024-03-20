@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   delete '/profiles/:id', to: 'profiles#destroy', as: :delete_profile
   resources :selected_artists, only: %i[new create]
   resources :selected_languages, only: %i[new create]
+  resources :matches, only: :index
 end
