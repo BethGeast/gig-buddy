@@ -1,4 +1,6 @@
 class Profile < ApplicationRecord
+  attr_accessor :language
+
   belongs_to :user
   has_many :selected_languages
   has_many :selected_artists
