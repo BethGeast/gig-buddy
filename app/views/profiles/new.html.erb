@@ -5,7 +5,7 @@
   <%= f.input :age %>
   <%= f.input :location %>
   <%= f.input :pronouns %>
-  <%= f.input :selected_languages %>
+  <%= f.input :languages, collection: Language.all.pluck(:language), input_html: { multiple: true, data: {controller: "tom-select"} }, include_hidden: false %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>

@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_strong_params)
-    @profile.selected_languages = @languages
+    @profile.language = @language
     @profile.user = current_user
     if @profile.save
       redirect_to root_path, notice: 'New profile successfully created!'
@@ -38,6 +38,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_strong_params
-    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id, :selected_languages, photos: [])
+    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id, :languages, photos: [])
   end
 end

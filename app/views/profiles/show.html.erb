@@ -3,7 +3,7 @@
 <%= @profile.age %>
 <%= @profile.location %>
 <%= @profile.pronouns %>
-<%= @languages %>
+<%= @profile.languages %>
 <% @profile.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
 <% end %>
