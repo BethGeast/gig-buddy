@@ -6,4 +6,10 @@
 
 <%= link_to "home", root_path %>
 
-<%= link_to "delete profile", delete_profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: "Sure you want to delete your profile?" } %>
+<% if policy(@profile).edit? %>
+  <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+<% end %>
+
+<% if policy(@profile).destroy? %>
+  <%= link_to "delete profile", delete_profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: "Sure you want to delete your profile?" } %>
+<% end %>
