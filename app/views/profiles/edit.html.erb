@@ -4,6 +4,8 @@
   <%= f.input :age %>
   <%= f.input :location %>
   <%= f.input :pronouns %>
+  <%= f.input :selected_languages %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>
 

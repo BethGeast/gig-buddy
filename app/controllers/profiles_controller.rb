@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update destroy]
   def show
+    @profile.selected_languages = @languages
   end
 
   def new
@@ -9,6 +10,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_strong_params)
+    @profile.selected_languages = @languages
     @profile.user = current_user
     if @profile.save
       redirect_to root_path, notice: 'New profile successfully created!'
@@ -37,6 +39,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_strong_params
-    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id)
+    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id, :selected_languages, photos: [])
   end
 end

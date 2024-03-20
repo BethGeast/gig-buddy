@@ -6,6 +6,7 @@ class Profile < ApplicationRecord
   has_many :artists, through: :selected_artists
   has_many :first_profile_matches, class_name: "Match", foreign_key: "first_profile_id"
   has_many :second_profile_matches, class_name: "Match", foreign_key: "second_profile_id"
+  has_many_attached :photos
 
   def matches
     first_profile_matches + second_profile_matches
