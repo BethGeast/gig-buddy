@@ -28,7 +28,7 @@ class MatchesController < ApplicationController
     @my_languages = @profile.languages
     @my_artists = @profile.artists
     @profiles.select do |match_profile|
-      @my_languages.intersect?(match_profile.languages) && @my_artists.intersect?(match_profile.artists)
+      @profile.can_be_matched?(match_profile, @my_languages, @my_artists)
     end
   end
 
