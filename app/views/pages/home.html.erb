@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="centered">
+  <div>
+  <h1>Find Your Gig Buddy Today</h1>
+  <%= link_to "Get Started", "#", class: "btn btn-primary btn-get-started", id: "getstartedbtn" %>
+  </div>
+  <div class="button-container">
+    <%= button_tag class: "btn btn-secondary btn-spotify" do %>
+      <i class="fab fa-spotify"></i>
+    <% end %>
+    <%= button_tag class: "btn btn-secondary btn-google" do %>
+      <i class="fab fa-google"></i>
+    <% end %>
+  </div>
+  <div class="sign-in-text">
+    <p>Already have an account? <strong><%= link_to "Sign in", "#" %></strong></p>
+  </div>
+</div>
