@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update destroy]
   def show
-    @profile.selected_languages = @languages
   end
 
   def new
