@@ -7,6 +7,8 @@ class Profile < ApplicationRecord
   has_many :first_profile_matches, class_name: "Match", foreign_key: "first_profile_id"
   has_many :second_profile_matches, class_name: "Match", foreign_key: "second_profile_id"
 
+  validates :name, :age, :location, presence: true
+
   def matches
     first_profile_matches + second_profile_matches
   end
