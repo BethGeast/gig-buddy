@@ -1,0 +1,4 @@
+<%= simple_form_for @selected_artist do |f| %>
+  <%= f.input :artist, collection: Artist.all, input_html: {multiple: true, data: {controller: "tom-select"} }, include_hidden: false %>
+  <%= f.submit %>
+<% end %>
