@@ -45,13 +45,17 @@ class MatchesController < ApplicationController
     else
       @match = Match.create(first_profile: @profile, second_profile: @match_profile, matched: false)
       respond_to do |format|
-        format.html {redirect_to match_path(@match)}
+        format.html { redirect_to match_path(@match) }
         format.json
       end
     end
   end
 
-  # def show
+  def show
+    @match = Match.find(params[:id])
+    @profile = current_user.profile
+    @match_profile = Profile.find(params[:profile_id])
+    @message = Message.new
   # chatroom page
   #   if @matches.matched == true
   #     # puts "You have a match!"
@@ -60,7 +64,7 @@ class MatchesController < ApplicationController
   #   else
   #     index
   #   end
-  # end
+  end
 
   def destroy
     @match = Match.find(params[:id])
