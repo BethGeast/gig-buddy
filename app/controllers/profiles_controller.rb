@@ -15,6 +15,8 @@ class ProfilesController < ApplicationController
     authorize @profile
     if @profile.save
       redirect_to root_path, notice: 'New profile successfully created!'
+      @language_ids = profile_strong_params[:language_ids]
+      @language_ids.each { |id| SelectedLanguage.create(profile: @profile, language_id: id) }
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,6 +45,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_strong_params
-    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id)
+    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id, language_ids: [], photos: [])
   end
 end
