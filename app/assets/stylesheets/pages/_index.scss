@@ -1,5 +1,12 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "profile";
 html{
   font-family: "Inter", sans-serif;
+  background-color: #1F1F1F;
+  color: white;
+}
+body{
+  background-color: #1F1F1F;
+  color: white;
 }

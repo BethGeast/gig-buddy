@@ -10,3 +10,9 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-lewagon {
+  position: fixed;
+  bottom: 0;
+  z-index: 999; /* Ensure navbar stays on top of other content */
+}

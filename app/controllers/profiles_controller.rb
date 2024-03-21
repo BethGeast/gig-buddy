@@ -37,6 +37,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_strong_params
-    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id)
+    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id, :bio)
   end
 end
