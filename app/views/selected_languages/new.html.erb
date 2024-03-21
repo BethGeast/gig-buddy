@@ -1,0 +1,4 @@
+<%= simple_form_for @selected_language do |f| %>
+  <%= f.input :language, collection: Language.all.pluck(:language), input_html: {multiple: true, data: {controller: "tom-select"} }, include_hidden: false %>
+  <%= f.submit %>
+<% end %>
