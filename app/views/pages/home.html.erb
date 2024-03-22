@@ -3,7 +3,10 @@
   <div class="home-centered">
     <div>
       <h1>Find Your Gig Buddy Today</h1>
+      <% if current_user %>
+      
       <%= link_to "Get Started", new_user_registration_path, class: "home-btn home-btn-primary home-btn-get-started d-block", id: "home-getstartedbtn" %>
+      <% end %>
     </div>
     <div class="home-button-container">
       <%= button_tag class: "home-btn home-btn-secondary home-btn-spotify" do %>
