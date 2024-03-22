@@ -1,0 +1,26 @@
+<% @profile.languages.each do |language| %>
+  <%= language.language %>
+<% end %>
+<% @profile.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
+<% end %>
+<%= link_to "View my artists", artists_index_path %>
+<%= link_to "Edit profile", edit_profile_path(@profile) %>
+<%= link_to "Delete my profile", delete_profile_path(@profile) %>
+
+
+<div class="banner">
+<div class="profile-picture"></div>
+</div>
+
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <h3>@<%= @profile.name %></h3>
+        <p class="pronouns"><%= @profile.pronouns %></p>
+        <p class="birthday location"><i class="fa-solid fa-location-dot"></i><%= @profile.location %> &nbsp; &nbsp; <i class="fa-solid fa-cake-candles"></i> <%= @profile.age %></p>
+        <p><%= @profile.bio %></p>
+      </div>
+    </div>
+</div>

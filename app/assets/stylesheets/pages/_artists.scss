@@ -1,0 +1,91 @@
+.card {
+  border-radius: 12px;
+  background-color: #1F1F1F;
+  border: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.artist-image {
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+}
+
+.name{
+  margin-left: 16px;
+}
+
+.custom-card {
+  width: 300px;
+  height: 550px;
+  padding: 0;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-title {
+  margin-bottom: 0 !important;
+}
+
+.form-control, .btn {
+  padding: 0 !important;
+}
+
+.artist-image {
+  padding: 0;
+}
+
+.name {
+  margin-bottom: 0;
+}
+
+.line {
+  background-color: #303030;
+  width: 200px;
+  height: 0.5px;
+  margin: 0;
+  margin-top: 6px;
+}
+
+#search {
+  height: 46px;
+  border-radius: 0 12px 12px 0;
+  background: #303030;
+  border: 0;
+  color: white;
+}
+
+.input-group-text {
+  height: 46px;
+  width: 46px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px 0 0 12px;
+  background: #303030;
+  color: white;
+  border: 0;
+  transition: font-size 0.3s ease;
+}
+.input-group-text:hover {
+  font-size: 20px ;
+
+}
+
+
+
+.input-group input[type="text"].form-control:focus {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.form-control {
+  color: white;
+}
