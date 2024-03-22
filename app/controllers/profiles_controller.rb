@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_strong_params)
     @profile.user = current_user
     if @profile.save
-      redirect_to root_path, notice: 'New profile successfully created!'
+      redirect_to profile_path(@profile), notice: 'New profile successfully created!'
       @language_ids = profile_strong_params[:language_ids]
       @language_ids.each { |id| SelectedLanguage.create(profile: @profile, language_id: id) }
     else
