@@ -23,13 +23,7 @@ class MatchesController < ApplicationController
 
   def index
     # show all possible matches
-    @profile = current_user.profile
-    @profiles = Profile.all - [@profile]
-    @my_languages = @profile.languages
-    @my_artists = @profile.artists
-    @profiles.select! do |match_profile|
-      @profile.can_be_matched?(match_profile, @my_languages, @my_artists)
-    end
+    @matches = current_user.profile.matches
   end
 
   def create
