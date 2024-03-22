@@ -43,7 +43,7 @@ profile_10 = Profile.create(name: "Deborah", age: 30, location: "Milan", pronoun
 language_1 = Language.new(language: "English")
 language_2 = Language.new(language: "German")
 language_3 = Language.new(language: "Spanish")
-languahe_4 = Language.new(language: "Italian")
+language_4 = Language.new(language: "Italian")
 language_5 = Language.new(language: "Portuguese")
 
 artist_1 = Artist.create(name: "Pablo Vittar")
