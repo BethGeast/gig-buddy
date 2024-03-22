@@ -1,8 +1,9 @@
+
 <div class="home">
   <div class="home-centered">
     <div>
       <h1>Find Your Gig Buddy Today</h1>
-      <%= link_to "Get Started", "#", class: "home-btn home-btn-primary home-btn-get-started d-block", id: "home-getstartedbtn" %>
+      <%= link_to "Get Started", new_user_registration_path, class: "home-btn home-btn-primary home-btn-get-started d-block", id: "home-getstartedbtn" %>
     </div>
     <div class="home-button-container">
       <%= button_tag class: "home-btn home-btn-secondary home-btn-spotify" do %>
@@ -13,7 +14,5 @@
       <% end %>
     </div>
     <div class="home-sign-in-text">
-      <p>Already have an account? <strong><%= link_to "Sign in", "#" %></strong></p>
+      <p>Already have an account? <strong><%= link_to "Sign in", new_user_session_path %></strong></p>
     </div>
-  </div>
-</div>
