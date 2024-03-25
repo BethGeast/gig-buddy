@@ -4,10 +4,8 @@
 <% @profile.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
 <% end %>
-<%= link_to "View my artists", artists_index_path %>
+<%= link_to "View my artists", artists_path %>
 <%= link_to "Edit profile", edit_profile_path(@profile) %>
-<%= link_to "Delete my profile", delete_profile_path(@profile) %>
-
 
 <div class="banner">
 <div class="profile-picture"></div>
