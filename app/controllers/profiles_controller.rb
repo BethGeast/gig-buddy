@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[show edit update destroy]
+  before_action :set_profile, only: %i[show edit update]
+
   def show
     authorize @profile
   end
@@ -30,12 +31,6 @@ class ProfilesController < ApplicationController
     authorize @profile
     @profile.update(profile_strong_params)
     redirect_to root_path, notice: 'Profile updated!'
-  end
-
-  def destroy
-    authorize @profile
-    @profile.destroy
-    redirect_to root_path, notice: 'Profile deleted'
   end
 
   private

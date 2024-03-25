@@ -4,12 +4,13 @@ class SelectedArtistPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
-    def new?
-      create?
-    end
+  end
 
-    def create?
-      record.user == user
-    end
+  def new?
+    create?
+  end
+
+  def create?
+    record.user == user
   end
 end

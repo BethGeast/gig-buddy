@@ -4,9 +4,11 @@ class MessagePolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+  end
 
-    def create?
-      record.user == user
-    end
+  def create?
+    match = record.match
+    my_profile = user.profile
+    match.first_profile == my_profile || match.second_profile == my_profile
   end
 end
