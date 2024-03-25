@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :profiles, except: %i[index destroy] do
+  resources :profiles, except: %i[index] do
     resources :matches, only: %i[create]
   end
   resources :matches, only: [] do
