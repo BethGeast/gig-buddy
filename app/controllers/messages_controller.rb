@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   def create
+    authorise @message
     @match = Match.find(params[:match_id])
     @message = Message.new(message_params)
     @message.match = @match

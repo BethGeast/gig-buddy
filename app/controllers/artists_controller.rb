@@ -6,5 +6,6 @@ class ArtistsController < ApplicationController
     else
       @artists = []
     end
+    @artists = policy_scope(Artist)
   end
 end
