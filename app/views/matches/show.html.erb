@@ -1,4 +1,4 @@
-<%= link_to "Home", root_path %>
+<%= link_to "Back", swiper_index_path %>
 
 <div class="container match"
       data-controller="match-subscription"
@@ -12,13 +12,13 @@
     <% @match.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
+  </div>
 
-    <%= simple_form_for [@match, @message], html: { data: { action: "turbo:submit-end->match-subscription#resetForm "} } do |f| %>
+    <%= simple_form_for [@match, @message], html: { data: { action: "turbo:submit-end->match-subscription#resetForm" } } do |f| %>
       <%= f.input :content,
           label: false,
           placeholder: "Send a message..."
       %>
       <%= f.submit "Send" %>
     <% end %>
-  </div>
 </div>

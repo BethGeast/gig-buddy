@@ -7,7 +7,7 @@ export default class extends Controller {
   static targets = ["messages"]
 
   connect() {
-    this.subscription = createConsumer().subscriptions.create(
+    this.channel = createConsumer().subscriptions.create(
       { channel: "MatchChannel", id: this.matchIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
