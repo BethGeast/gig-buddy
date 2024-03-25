@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   delete '/profiles/:id', to: 'profiles#destroy', as: :delete_profile
   resources :selected_artists, only: %i[new create]
-  resources :artists, only: :index
+  resources :artists, only: :index # needs to be nested in user??
   resources :selected_languages, only: %i[new create]
   resources :matches, only: %i[index destroy]
 end
