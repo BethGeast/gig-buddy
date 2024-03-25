@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  #get 'artists/index'
   devise_for :users
   root to: "pages#home"
   resources :profiles, except: %i[index] do
