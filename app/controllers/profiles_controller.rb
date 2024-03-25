@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     authorize @profile
     if @profile.save
-      redirect_to root_path, notice: 'New profile successfully created!'
+      redirect_to profile_path(@profile), notice: 'New profile successfully created!'
       @language_ids = profile_strong_params[:language_ids]
       @language_ids.each { |id| SelectedLanguage.create(profile: @profile, language_id: id) }
     else
@@ -45,6 +45,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_strong_params
-    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id, language_ids: [], photos: [])
+    params.require(:profile).permit(:name, :age, :location, :pronouns, :user_id, :bio, language_ids: [], photos: [])
   end
 end

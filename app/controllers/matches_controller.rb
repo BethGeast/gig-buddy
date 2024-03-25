@@ -23,29 +23,46 @@ class MatchesController < ApplicationController
 
   def index
     # show all possible matches
-    @profile = current_user.profile
-    @profiles = Profile.all - [@profile]
-    @my_languages = @profile.languages
-    @my_artists = @profile.artists
-    @profiles.select do |match_profile|
-      @profile.can_be_matched?(match_profile, @my_languages, @my_artists)
-    end
+    @matches = current_user.profile.matches
   end
 
   def create
-    # get profile id of user and current_user.profile
+    # get profile id of match user and current_user.profile
+    @profile = current_user.profile
+    @match_profile = Profile.find(params[:profile_id])
     # match = find_match
+    @match = find_match(@match_profile)
     # if match, match.update where matched = true
+    if @match
+      @match.update(matched: true)
     # else create new match with you as 1st profile, them as 2nd and matched = false
+    else
+      @match = Match.create(first_profile: @profile, second_profile: @match_profile, matched: false)
+      respond_to do |format|
+        format.html { redirect_to match_path(@match) }
+        format.json
+      end
+    end
   end
 
   def show
-    # if matched = true show 'you have matched with user!!'
-    # else continue swiping through index of potential matches
+    @match = Match.find(params[:id])
+    @profile = current_user.profile
+    @match_profile = Profile.find(params[:profile_id])
+    @message = Message.new
+  # chatroom page
+  #   if @matches.matched == true
+  #     # puts "You have a match!"
+  #   # if matched = true show 'you have matched with user!!'
+  #   # else continue swiping through index of potential matches
+  #   else
+  #     index
+  #   end
   end
 
-  def update
-    # updates record in matches table to matched = true
-    # if both users swiped yes
+  def destroy
+    @match = Match.find(params[:id])
+    @match.destroy
+    redirect_to root_path, status: :see_other, notice: "Match deleted"
   end
 end
