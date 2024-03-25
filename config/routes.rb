@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :artists, only: :index # needs to be nested in user??
   resources :selected_languages, only: %i[new create]
   resources :matches, only: %i[index destroy]
+  resources :swiper, only: :index
 end

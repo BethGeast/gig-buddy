@@ -1,0 +1,15 @@
+<h1>Get swiping!</h1>
+
+<% @profiles.each do |profile| %>
+  <%= profile.name %>
+  <%= profile.age %>
+  <%= profile.location %>
+  <%= profile.pronouns %>
+  <%# small profile picture and spotify top 5 artists?? %>
+<% end %>
+
+<%# for each profile, one button for yes which links to: profile_matches_path
+and one button for no which links to: profile_matches_path
+i think should work as the controller then handles whether match is made or not?? %>
+<%# if swipe yes, either does matches controller create and/or show, if swipe no,
+should still create new record in matches controller but no show or option to go to chat %>

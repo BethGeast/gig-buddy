@@ -9,16 +9,12 @@
   <%- end -%>
   </div>
 
-
-
-
 <%= form_for @user do |f| %>
 <%= f.label  :name %>
 <%= f.text_field  :name %>
 <%= Artist.all.each do |artist| %>
 <% check_box_tag "user[artist_ids][]", artist.ids, @user.artists.include?artist)%>
 <%  label_tag "user_artist_ids_#{artist.id}", artist.name %>
-
 
   <div class="form-actions">
     <%%= f.button :submit %>

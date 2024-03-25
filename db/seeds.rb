@@ -7,11 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Message.destroy_all
+Match.destroy_all
+SelectedLanguage.destroy_all
+SelectedArtist.destroy_all
+Artist.destroy_all
+Language.destroy_all
+Profile.destroy_all
+User.destroy_all
 
 # 10 Users && 10 Profiles
-user_1 = User.create!(email: "neto@gmail.com", password: 123456)
+user_1 = User.create!(email: "nete@gmail.com", password: 123456)
 profile_1 = Profile.create(name: "maria", age: 34, location: "leblon", pronouns: "she", user_id: user_1.id)
-profile_1_can_be_matched
 
 user_2 = User.create!(email: "filho@gmail.com", password: 123456)
 profile_2 = Profile.create(name: "lucas", age: 21, location: "Amsterdam", pronouns: "they", user_id: user_2.id)
@@ -34,10 +41,10 @@ profile_7 = Profile.create(name: "Mona", age: 41, location: "Ibiza", pronouns: "
 user_8 = User.create!(email: "brother@gmail.com", password: 123456)
 profile_8 = Profile.create(name: "luca", age: 30, location: "Seoul", pronouns: "he", user_id: user_8.id)
 
-user_9 = User.create!(email: "filho@gmail.com", password: 123456)
+user_9 = User.create!(email: "filhi@gmail.com", password: 123456)
 profile_9 = Profile.create(name: "Maju", age: 35, location: "Brussels", pronouns: "she", user_id: user_9.id)
 
-user_10 = User.create!(email: "filho@gmail.com", password: 123456)
+user_10 = User.create!(email: "filhy@gmail.com", password: 123456)
 profile_10 = Profile.create(name: "Deborah", age: 30, location: "Milan", pronouns: "she", user_id: user_10.id)
 
 language_1 = Language.new(language: "English")
@@ -62,7 +69,7 @@ selected_artists_6 = SelectedArtist.create(profile: profile_5, artist: artist_3)
 selected_artists_7 = SelectedArtist.create(profile: profile_6, artist: artist_1)
 selected_artists_8 = SelectedArtist.create(profile: profile_6, artist: artist_2)
 selected_artists_9 = SelectedArtist.create(profile: profile_7, artist: artist_4)
-selected_artists_10 = SelectedArtist.creat(profile: profile_7, artist: artist_3)
+selected_artists_10 = SelectedArtist.create(profile: profile_7, artist: artist_3)
 selected_artists_11 = SelectedArtist.create(profile:profile_8, artist: artist_1)
 selected_artists_12 = SelectedArtist.create(profile:profile_8, artist: artist_1)
 selected_artists_13 = SelectedArtist.create(profile:profile_9, artist: artist_4)
@@ -91,7 +98,7 @@ selected_languages_13 = SelectedLanguage.create(profile: profile_9, language: la
 selected_languages_14 = SelectedLanguage.create(profile: profile_9, language: language_1)
 selected_languages_15 = SelectedLanguage.create(profile: profile_5, language: language_4)
 selected_languages_16 = SelectedLanguage.create(profile: profile_5, language: language_5)
-selected_languages_17 = SelectedLanguage.create(profile: profile_1, language: language_6)
+selected_languages_17 = SelectedLanguage.create(profile: profile_1, language: language_3)
 selected_languages_18 = SelectedLanguage.create(profile: profile_3, language: language_1)
 selected_languages_19 = SelectedLanguage.create(profile: profile_10,language: language_3)
 selected_languages_20 = SelectedLanguage.create(profile: profile_1, language: language_3)
