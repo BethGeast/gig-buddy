@@ -48,7 +48,7 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @profile = current_user.profile
-    @match_profile = Profile.find(params[:profile_id])
+    @match_profile = (@match.profiles - [@profile]).last
     @message = Message.new
   # chatroom page
   #   if @matches.matched == true
