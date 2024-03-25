@@ -12,6 +12,14 @@ class SelectedArtistsController < ApplicationController
     redirect_to root_path
   end
 
+  def index
+    @selected_artists = SelectedArtist.where(profile_id: params[:profile_id])
+    @list = []
+    @selected_artists.each do |art_id|
+      @list << Artist.find(art_id.artist_id)
+    end
+  end
+
   private
 
   def selected_artist_params

@@ -42,3 +42,11 @@
   }
 </script>
 <%= link_to "Back", profile_path(@profile) %>
+
+<h1>Artists</h1>
+
+<ul>
+<% @artists.each do |artist| %>
+<li><%= link_to artist.name, artist %></li>
+
+</ul>

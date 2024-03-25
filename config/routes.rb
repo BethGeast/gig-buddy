@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'artists/index'
+  #get 'artists/index'
   devise_for :users
   root to: "pages#home"
   resources :profiles, except: %i[index destroy] do
     resources :matches, only: %i[create show]
+    resources :selected_artists, only: %i[index]
   end
   resources :matches, only: [] do
     resources :messages, only: :create
