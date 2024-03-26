@@ -1,1 +1,5 @@
-# json.me render_to_string partial("match_card")
+if @match.matched?
+  json.match_card # render partial
+else
+  json.created :ok
+end
