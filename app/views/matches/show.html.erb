@@ -1,4 +1,4 @@
-<%= link_to "Back", swiper_index_path %>
+<%= link_to "Back", matches_path %>
 
 <div class="container match"
       data-controller="match-subscription"
@@ -6,7 +6,7 @@
       data-match-subscription-current-user-id-value="<%= current_user.id %>"
 >
 
-  <h1>Chat with <%= @match_profile.name.capitalize %></h1>
+  <h1>Chat with <%= link_to @match_profile.name.capitalize, profile_path(@match_profile) %></h1>
 
   <div class="messages" data-match-subscription-target="messages">
     <% @match.messages.each do |message| %>
