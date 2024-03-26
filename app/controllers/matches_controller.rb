@@ -38,7 +38,6 @@ class MatchesController < ApplicationController
         @match.update(matched: true)
         format.html { redirect_to match_path(@match) }
         format.json
-        end
       # else create new match with you as 1st profile, them as 2nd and matched = false
       else
         @match = Match.create(first_profile: @profile, second_profile: @match_profile, matched: false)
