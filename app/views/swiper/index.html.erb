@@ -1,10 +1,10 @@
-<h1>Get swiping!</h1>
+
 
 <div class="swiper-container" data-controller="swiper">
   <div class="swiper-wrapper">
     <% @profiles.each_with_index do |profile, index| %>
       <div class="swiper-slide profile-card-<%= index %>" data-profile-id="<%= profile.id %>">
-        <div class="">
+        <div class="d-none">
           <%= simple_form_for [profile, Match.new], data: { swiper_target: "form", form_id: profile.id } do |f| %>
             <%= f.submit %>
           <% end %>
@@ -29,4 +29,3 @@
     <% end %>
   </div>
 </div>
- 
