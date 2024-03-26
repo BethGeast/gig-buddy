@@ -17,6 +17,8 @@
   <%= link_to "Delete profile", delete_profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: "Sure you want to delete your profile?" } %>
 <% end %>
 
+<%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Sure you want to log out?" } %>
+
 <div class="banner">
 <div class="profile-picture">
 <%= @profile.photos.first %>

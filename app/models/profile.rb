@@ -2,15 +2,16 @@ class Profile < ApplicationRecord
   attr_accessor :language
 
   belongs_to :user
-  has_many :selected_languages
-  has_many :selected_artists
+  has_many :selected_languages, dependent: :destroy
+  has_many :selected_artists, dependent: :destroy
   has_many :languages, through: :selected_languages
   has_many :artists, through: :selected_artists
-  has_many :first_profile_matches, class_name: "Match", foreign_key: "first_profile_id"
-  has_many :second_profile_matches, class_name: "Match", foreign_key: "second_profile_id"
-  has_many_attached :photos
+  has_many :first_profile_matches, class_name: "Match", foreign_key: "first_profile_id", dependent: :destroy
+  has_many :second_profile_matches, class_name: "Match", foreign_key: "second_profile_id", dependent: :destroy
+  has_many_attached :photos, dependent: :destroy
 
   validates :name, :age, :location, presence: true
+  validates :photos, presence: true
 
   def matches
     first_profile_matches + second_profile_matches

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :has_profile?, except: [ :home ]
   include Pundit::Authorization
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -13,6 +14,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def has_profile?
+    if user_signed_in?
+      redirect_to new_profile_path if current_user.profile.present? == false
+    end
+  end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/

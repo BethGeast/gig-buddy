@@ -1,5 +1,5 @@
 class Match < ApplicationRecord
-  has_many :messages
+  has_many :messages, dependent: :destroy
   belongs_to :first_profile, class_name: 'Profile'
   belongs_to :second_profile, class_name: 'Profile'
 
