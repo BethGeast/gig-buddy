@@ -47,9 +47,8 @@
 
 <ul>
 <% @artists.each do |artist| %>
-<li><%= link_to artist.name, artist %></li>
+<li><%= link_to artist.name, artist_path %></li>
 
 </ul>
 
 <%# <%= link_to "Back", profile_path(@profile) %>
-
