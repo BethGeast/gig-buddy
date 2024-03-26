@@ -1,13 +1,32 @@
-<%= link_to "Back", profile_path(@profile) %>
-<div class="container d-flex justify-content-center align-items-center vh-100">
-  <div class="artists-card custom-card">
+<div class="container d-flex justify-content-center align-items-center vh-100"
+     data-controller="artists">
+  <div id="selected-artists-card" class="artists-card custom-card" data-target="artists.selectedArtistsCard">
+    <div class="card-body d-flex flex-column justify-content-center text-center">
+      <!-- Selected artists card content goes here -->
+      <h2>My Artists</h2>
+      <ul>
+        <% if @selected_artists.present? %>
+          <% @selected_artists.each do |artist| %>
+            <li><%= artist.name %></li>
+          <% end %>
+        <% else %>
+        <% end %>
+      </ul>
+      <!-- Add button to toggle to search card -->
+      <button class="btn btn-link" data-action="click->artists#toggleSearchCard">
+        <i class="fas fa-plus"></i> Search for more artists
+      </button>
+    </div>
+  </div>
+  <div id="search-card" class="artists-card custom-card d-none" data-target="artists.searchCard">
     <div class="card-body d-flex flex-column justify-content-center">
+      <!-- Search card content goes here -->
       <%= form_tag artists_path, method: :get, class: "input-group mb-3 search-bar", id: "search-form" do %>
         <div class="input-group-prepend">
           <span class="input-group-text search-icon" onclick="submitForm()"><i class="fas fa-search"></i></span>
         </div>
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for artists" %>
-      <% end %> <!-- Closing form_tag -->
+      <% end %>
       <% if @artists.present? %>
         <div class="artists-card mt-3">
           <div class="card-body">
@@ -33,23 +52,15 @@
           </div>
         </div>
       <% end %>
+      <!-- Add button to toggle back to selected artists card -->
+      <button class="btn btn-link" data-action="click->artists#toggleSelectedArtistsCard">
+        Back to selected artists
+      </button>
     </div>
   </div>
 </div>
-
 <script>
   function submitForm() {
     document.getElementById('search-form').submit();
   }
 </script>
-
-<h1>Artists</h1>
-
-<ul>
-  <% @artists.each do |artist| %>
-    <li><%= link_to artist.name, artists_path %></li>
-  <% end %>
-
-</ul>
-
-<%# <%= link_to "Back", profile_path(@profile) %>
