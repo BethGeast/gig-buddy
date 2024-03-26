@@ -42,16 +42,14 @@
     document.getElementById('search-form').submit();
   }
 </script>
-<<<<<<< HEAD
-=======
 
 <h1>Artists</h1>
 
 <ul>
-<% @artists.each do |artist| %>
-<li><%= link_to artist.name, artist_path %></li>
+  <% @artists.each do |artist| %>
+    <li><%= link_to artist.name, artists_path %></li>
+  <% end %>
 
 </ul>
 
->>>>>>> master
 <%# <%= link_to "Back", profile_path(@profile) %>
