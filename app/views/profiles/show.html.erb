@@ -4,10 +4,18 @@
 <% @profile.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
 <% end %>
-<%= link_to "View my artists", profile_selected_artists_path(@profile) %>
-<%= link_to "Edit profile", edit_profile_path(@profile) %>
-<%= link_to "Delete my profile", delete_profile_path(@profile) %>
 
+<%= link_to "View my artists", artists_path %>
+<%# <%= link_to "Edit profile", edit_profile_path(@profile) %>
+<%# <%= link_to "Delete my profile", delete_profile_path(@profile) %>
+
+<% if policy(@profile).edit? %>
+  <%= link_to "Edit profile", edit_profile_path(@profile) %>
+<% end %>
+
+<% if policy(@profile).destroy? %>
+  <%= link_to "Delete profile", delete_profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: "Sure you want to delete your profile?" } %>
+<% end %>
 
 <div class="banner">
 <div class="profile-picture"></div>

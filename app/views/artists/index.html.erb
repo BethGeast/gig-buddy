@@ -1,3 +1,4 @@
+<%= link_to "Back", profile_path(@profile) %>
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="card custom-card">
     <div class="card-body d-flex flex-column justify-content-center">
@@ -46,7 +47,7 @@
 
 <ul>
 <% @artists.each do |artist| %>
-<li><%= link_to artist.name, artist %></li>
+<li><%= link_to artist.name, artist_path %></li>
 
 </ul>
 

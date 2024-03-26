@@ -14,12 +14,18 @@
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
   </head>
 
-<body>
-  <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "matches" %>
-    <%= render "shared/navbar" %>
-  <% end %>
-  <%= render "shared/flashes" %>
+  <body>
+    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "matches" %>
+      <%= render "shared/navbar" %>
+    <% end %>
+    <%= render "shared/flashes" %>
 
-  <%= yield %>
-</body>
+    <%= yield %>
+
+    <% if user_signed_in?%>
+     <%= link_to "Sign out", destroy_user_session_path,  data: {turbo_method: :delete}%>%
+     <% else %>
+     <%= link_to "Sign in", new_user_session_path%>
+     <% end %>
+  </body>
 </html>
