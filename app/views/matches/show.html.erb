@@ -1,11 +1,14 @@
+
+<%= link_to "Back", matches_path %>
 <div class="header">
   <div class="back">
     <%= link_to swiper_index_path do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
   </div>
-  <h1><%= @match_profile.name.capitalize %></h1>
+  <h1>Chat with <%= link_to @match_profile.name.capitalize, profile_path(@match_profile) %></h1>
 </div>
+
 
 <div class="container match"
   data-controller="match-subscription"

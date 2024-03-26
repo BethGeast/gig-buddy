@@ -1,2 +1,8 @@
-
-<%= @matches %>
+<h1>Chat with your matches</h1>
+<% @matches.each do |match| %>
+  <% if match.first_profile == current_user.profile %>
+    <%= link_to match.second_profile.name, match_path(match) %>
+  <% else %>
+    <%= link_to match.first_profile.name, match_path(match) %>
+  <% end %>
+<% end %>
