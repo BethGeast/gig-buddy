@@ -19,7 +19,7 @@
   </head>
 
   <body>
-    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "matches" %>
+    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "matches" && params[:action] == "show"%>
       <%= render "shared/navbar" %>
     <% end %>
     <%= render "shared/flashes" %>
@@ -27,7 +27,7 @@
     <%= yield %>
 
     <% if user_signed_in?%>
-     <%= link_to "Sign out", destroy_user_session_path,  data: {turbo_method: :delete}%>%
+     <%# <%= link_to "Sign out", destroy_user_session_path,  data: {turbo_method: :delete} %>
      <% else %>
      <%= link_to "Sign in", new_user_session_path%>
      <% end %>
