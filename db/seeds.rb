@@ -18,7 +18,7 @@ User.destroy_all
 
 # 10 Users && 10 Profiles
 user_1 = User.create!(email: "nete@gmail.com", password: 123456)
-profile_1 = Profile.create(name: "maria", age: 34, location: "leblon", pronouns: "she", user_id: user_1.id)
+profile_1 = Profile.create(name: "maria", age: 34, location: "Leblon", pronouns: "she", user_id: user_1.id)
 
 user_2 = User.create!(email: "filho@gmail.com", password: 123456)
 profile_2 = Profile.create(name: "lucas", age: 21, location: "Amsterdam", pronouns: "they", user_id: user_2.id)
@@ -103,4 +103,4 @@ selected_languages_18 = SelectedLanguage.create(profile: profile_3, language: la
 selected_languages_19 = SelectedLanguage.create(profile: profile_10,language: language_3)
 selected_languages_20 = SelectedLanguage.create(profile: profile_1, language: language_3)
 
-  # Matches - pending (waiting for a method to check if the Profiles can be matched - Beth)
+# Matches - pending (waiting for a method to check if the Profiles can be matched - Beth)
