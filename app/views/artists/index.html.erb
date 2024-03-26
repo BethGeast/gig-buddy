@@ -1,6 +1,6 @@
 <%= link_to "Back", profile_path(@profile) %>
 <div class="container d-flex justify-content-center align-items-center vh-100">
-  <div class="card custom-card">
+  <div class="artists-card custom-card">
     <div class="card-body d-flex flex-column justify-content-center">
       <%= form_tag artists_path, method: :get, class: "input-group mb-3 search-bar", id: "search-form" do %>
         <div class="input-group-prepend">
@@ -9,7 +9,7 @@
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for artists" %>
       <% end %> <!-- Closing form_tag -->
       <% if @artists.present? %>
-        <div class="card mt-3">
+        <div class="artists-card mt-3">
           <div class="card-body">
             <div class="row">
               <% @artists.each do |artist| %>
