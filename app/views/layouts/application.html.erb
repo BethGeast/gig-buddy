@@ -15,10 +15,11 @@
   </head>
 
   <body>
-    <% unless params[:controller] == "pages" && params[:action] == "home" %>
+    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "matches" %>
       <%= render "shared/navbar" %>
     <% end %>
     <%= render "shared/flashes" %>
+
     <%= yield %>
 
     <% if user_signed_in?%>
