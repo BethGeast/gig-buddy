@@ -1,4 +1,4 @@
 <div id="message" <%= message.id %>>
-  <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  <i><%= message.user.profile.name %></i>
   <p><%= message.content %></p>
 </div>
