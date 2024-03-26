@@ -11,6 +11,7 @@ class Profile < ApplicationRecord
   has_many_attached :photos, dependent: :destroy
 
   validates :name, :age, :location, presence: true
+  validates :photos, presence: true
 
   def matches
     first_profile_matches + second_profile_matches

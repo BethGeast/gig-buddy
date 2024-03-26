@@ -7,7 +7,8 @@
   <%= f.input :pronouns %>
   <%= f.input :bio %>
   <%= f.input :language_ids, collection: Language.all, label_method: :language, value_method: :id, input_html: { multiple: true, data: {controller: "tom-select"} }, include_hidden: false %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true },
+              required: true, autofocus: true %>
   <%= f.button :submit, "Go!" %>
 <% end %>
 
