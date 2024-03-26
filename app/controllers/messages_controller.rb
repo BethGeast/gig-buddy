@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.match = @match
     @message.user = current_user
+    authorize @message
     if @message.save
       MatchChannel.broadcast_to(
         @match,
