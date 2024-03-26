@@ -23,7 +23,7 @@ class MatchesController < ApplicationController
 
   def index
     # show all possible matches
-    @matches = current_user.profile.matches
+    @matches = policy_scope(Match)
   end
 
   def create
@@ -43,13 +43,15 @@ class MatchesController < ApplicationController
         format.json
       end
     end
+    authorize @match
   end
 
   def show
     @match = Match.find(params[:id])
     @profile = current_user.profile
-    @match_profile = Profile.find(params[:profile_id])
+    @match_profile = (@match.profiles - [@profile]).last
     @message = Message.new
+    authorize @match
   # chatroom page
   #   if @matches.matched == true
   #     # puts "You have a match!"
@@ -61,8 +63,10 @@ class MatchesController < ApplicationController
   end
 
   def destroy
+
     @match = Match.find(params[:id])
     @match.destroy
     redirect_to root_path, status: :see_other, notice: "Match deleted"
+    authorize @match
   end
 end
