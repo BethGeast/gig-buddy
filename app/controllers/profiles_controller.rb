@@ -1,15 +1,19 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[show edit update destroy]
+  before_action :set_profile, only: %i[show edit update]
+
   def show
+    authorize @profile
   end
 
   def new
     @profile = Profile.new
+    authorize @profile
   end
 
   def create
     @profile = Profile.new(profile_strong_params)
     @profile.user = current_user
+    authorize @profile
     if @profile.save
       redirect_to profile_path(@profile), notice: 'New profile successfully created!'
       @language_ids = profile_strong_params[:language_ids]
@@ -20,16 +24,13 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    authorize @profile
   end
 
   def update
+    authorize @profile
     @profile.update(profile_strong_params)
     redirect_to root_path, notice: 'Profile updated!'
-  end
-
-  def destroy
-    @profile.destroy
-    redirect_to root_path, notice: 'Profile deleted'
   end
 
   private

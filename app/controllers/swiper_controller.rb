@@ -1,7 +1,7 @@
 class SwiperController < ApplicationController
   def index
     @profile = current_user.profile
-    @profiles = Profile.all - [@profile]
+    @profiles = policy_scope(Profile) - [@profile]
     @my_languages = @profile.languages
     @my_artists = @profile.artists
     @profiles.select! do |match_profile|
