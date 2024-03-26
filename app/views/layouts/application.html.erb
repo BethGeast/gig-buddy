@@ -12,14 +12,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <%# <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> %>
+
   </head>
 
   <body>
-    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "profiles" %>
+
+    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller == "matches" || params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "profiles" %>
+
       <%= render "shared/navbar" %>
     <% end %>
     <%= render "shared/flashes" %>
 
     <%= yield %>
+
+    <% if user_signed_in?%>
+     <%= link_to "Sign out", destroy_user_session_path,  data: {turbo_method: :delete}%>%
+     <% else %>
+     <%= link_to "Sign in", new_user_session_path%>
+     <% end %>
   </body>
 </html>

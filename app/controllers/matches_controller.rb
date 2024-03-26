@@ -31,14 +31,16 @@ class MatchesController < ApplicationController
     @profile = current_user.profile
     @match_profile = Profile.find(params[:profile_id])
     # match = find_match
-    @match = find_match(@match_profile)
+    @match = @profile.find_match(@match_profile)
     # if match, match.update where matched = true
-    if @match
-      @match.update(matched: true)
-    # else create new match with you as 1st profile, them as 2nd and matched = false
-    else
-      @match = Match.create(first_profile: @profile, second_profile: @match_profile, matched: false)
-      respond_to do |format|
+    respond_to do |format|
+      if @match
+        @match.update(matched: true)
+        format.html { redirect_to match_path(@match) }
+        format.json
+      # else create new match with you as 1st profile, them as 2nd and matched = false
+      else
+        @match = Match.create(first_profile: @profile, second_profile: @match_profile, matched: false)
         format.html { redirect_to match_path(@match) }
         format.json
       end
