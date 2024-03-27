@@ -1,27 +1,17 @@
-<% @profile.languages.each do |language| %>
-  <%= language.language %>
+
+
+<% if policy(@profile).edit? %>
+  <div class="edit-profile">
+    <%= link_to edit_profile_path(@profile) do %>
+      <i class="fa-solid fa-pencil"></i>
+    <% end %>
+  </div>
 <% end %>
+<div class="banner">
+<div class="profile-picture">
 <% @profile.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
 <% end %>
-
-<%= link_to "View my artists", artists_path %>
-<%# <%= link_to "Edit profile", edit_profile_path(@profile) %>
-<%# <%= link_to "Delete my profile", delete_profile_path(@profile) %>
-
-<% if policy(@profile).edit? %>
-  <%= link_to "Edit profile", edit_profile_path(@profile) %>
-<% end %>
-
-<% if policy(@profile).destroy? %>
-  <%= link_to "Delete profile", delete_profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: "Sure you want to delete your profile?" } %>
-<% end %>
-
-<%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Sure you want to log out?" } %>
-
-<div class="banner">
-<div class="profile-picture">
-<%= @profile.photos.first %>
 </div>
 </div>
 
@@ -32,7 +22,36 @@
         <h3>@<%= @profile.name %></h3>
         <p class="pronouns"><%= @profile.pronouns %></p>
         <p class="birthday location"><i class="fa-solid fa-location-dot"></i><%= @profile.location %> &nbsp; &nbsp; <i class="fa-solid fa-cake-candles"></i> <%= @profile.age %></p>
-        <p><%= @profile.bio %></p>
+        <div class="line"></div>
+        <% if @profile.bio.present? %>
+          <p><%= @profile.bio %></p>
+        <% else %>
+          <p class="bio">This user hasn't provided a bio yet.</p> <!-- Default bio -->
+        <% end %>
+        <div class="line"></div>
+          <div class="centered-links">
+            <%= link_to artists_path, class: "centered-link" do %>
+              My Artists
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+          </div>
+        <div class="artists-container"></div>
+        <div class="line"></div>
+        <div class="centered-links languages">
+        Languages:
+        <% @profile.languages.each do |language| %>
+          <%= language.language %>
+        <% end %>
+        </div>
+        <div class="line"></div>
+        <div class="centered-links logout">
+
+              <% if policy(@profile).edit? %>
+                <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Sure you want to log out?" }, class: "centered-link" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </div>

@@ -15,6 +15,8 @@
   .birthday , .location{
     margin-top: 10px;
     font-size: 10px;
+    margin: 0;
+    margin-top: 16px;
   }
   p {
     font-size: 12px;
@@ -28,6 +30,10 @@
   .row {
     margin: 0
   }
+  .line{
+    width: 342px;
+    margin-bottom: 16px;
+  }
 }
 
   .banner {
@@ -40,8 +46,127 @@
   .profile-picture{
     height: 100px;
     width: 100px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0);
     border-radius: 50%;
     position: relative;
     top: 124px;
+    overflow: hidden;
+    border: 0;
   }
+
+  .artists-container {
+    width: 300px;
+    height: 160px;
+    border-radius: 12px;
+    background-color: #2D2D2D;
+    padding: 20px; /* Adjust padding as needed */
+    margin-top: 20px; /* Adjust margin-top as needed */
+    color: white; /* Text color inside the container */
+    margin: 0 auto; /* Center horizontally */
+    margin-bottom: 16px;
+  }
+
+  .bio {
+    opacity: 50%;
+  }
+
+  .edit-profile {
+    position: absolute;
+    top: 168px; /* Adjust top position as needed */
+    right: 10px; /* Adjust right position as needed */
+    color: white;
+  }
+
+  .fa-pencil {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+  }
+
+  .centered-links {
+    text-align: center;
+    margin-top: 20px; /* Adjust margin-top as needed */
+  }
+
+  .centered-link {
+    color: white;
+    text-decoration: none;
+
+  }
+
+  .languages {
+  margin-bottom: 16px;
+  font-size: 12px;
+  }
+
+  .logout {
+    opacity: 50%;
+  }
+//
+//
+//
+//
+//
+// profile new
+//
+//
+//
+//
+//
+//
+  .profile-new-container {
+    width: 340px;
+    margin: 0 auto;
+    text-align: center;
+
+  .profile-form {
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+    padding-bottom: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+.styled-input {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+  color: white;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.styled-input::placeholder {
+  color: white;
+  opacity: 75%;
+}
+
+  .languages-label,
+  .profile-picture-label {
+    color: white;
+  }
+
+  .submit-button {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .home-link {
+    color: white;
+    text-decoration: none;
+  }
+
+  .home-link:hover {
+    text-decoration: underline;
+  }
+}
