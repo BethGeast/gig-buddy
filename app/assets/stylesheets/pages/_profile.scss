@@ -77,6 +77,16 @@
     color: white;
   }
 
+  .profile-back-button {
+    position: absolute;
+    top: 20px; /* Adjust top position as needed */
+    left: 20px; /* Adjust right position as needed */
+    font-size: 25px;
+    ::before {
+      color: white;
+    }
+  }
+
   .fa-pencil {
     text-decoration: none;
     color: white;

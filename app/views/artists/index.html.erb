@@ -26,7 +26,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text search-icon" onclick="submitForm()"><i class="fas fa-search"></i></span>
         </div>
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for artists" %>
+        <%= text_field_tag :search, "", class: "form-control", placeholder: "Search for artists" %>
       <% end %>
       <% if @artists.present? %>
         <div class="artists-card mt-3">
@@ -34,19 +34,21 @@
             <div class="row">
               <% @artists.each do |artist| %>
                 <% if artist.images.any? %>
-                  <div class="col-md-4 mb-3">
-                    <div class="d-flex align-items-center">
-                      <div class="rounded-circle mr-3 artist-image">
-                        <%= image_tag artist.images.first['url'], class: "img-fluid rounded-circle" %>
-                      </div>
-                      <div class="d-flex flex-column">
-                        <div class="name mb-2">
-                          <%= artist.name %>
+                  <%= link_to artists_path(name: artist.name), data: { turbo_method: :post } do %>
+                    <div class="col-md-4 mb-3">
+                      <div class="d-flex align-items-center">
+                        <div class="rounded-circle mr-3 artist-image">
+                          <%= image_tag artist.images.first['url'], class: "img-fluid rounded-circle" %>
                         </div>
-                        <div class="line"></div>
+                        <div class="d-flex flex-column">
+                          <div class="name mb-2">
+                            <%= artist.name %>
+                          </div>
+                          <div class="line"></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>

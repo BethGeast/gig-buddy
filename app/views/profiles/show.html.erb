@@ -1,5 +1,3 @@
-
-
 <% if policy(@profile).edit? %>
   <div class="edit-profile">
     <%= link_to edit_profile_path(@profile) do %>
@@ -7,6 +5,15 @@
     <% end %>
   </div>
 <% end %>
+
+<% if current_user != @profile.user %>
+  <div class="profile-back-button">
+    <%= link_to :back do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
+<% end %>
+
 <div class="banner">
 <div class="profile-picture">
 <% @profile.photos.each do |photo| %>
