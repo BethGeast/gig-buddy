@@ -7,16 +7,19 @@
     margin-bottom: 0;
     font-weight: bold;
   }
+
+  .profile-name {
+    font-size: 24px;
+  }
+
   .pronouns {
-    font-size: 8px;
+    font-size: 16px;
     opacity: 75%;
     margin-bottom: 0;
   }
-  .birthday , .location{
-    margin-top: 10px;
-    font-size: 10px;
-    margin: 0;
-    margin-top: 16px;
+  .birthday, .location{
+    font-size: 12px;
+    margin: 10px 0;
   }
   p {
     font-size: 12px;
@@ -105,8 +108,8 @@
   }
 
   .languages {
-  margin-bottom: 16px;
-  font-size: 12px;
+    font-size: 16px;
+    margin-bottom: 16px;
   }
 
   .logout {

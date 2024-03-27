@@ -26,7 +26,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto">
-        <h3>@<%= @profile.name %></h3>
+        <h3 class="profile-name">@<%= @profile.name %></h3>
         <p class="pronouns"><%= @profile.pronouns %></p>
         <p class="birthday location"><i class="fa-solid fa-location-dot"></i><%= @profile.location %> &nbsp; &nbsp; <i class="fa-solid fa-cake-candles"></i> <%= @profile.age %></p>
         <div class="line"></div>
@@ -42,11 +42,37 @@
               <i class="fa-solid fa-pencil"></i>
             <% end %>
           </div>
-        <div class="artists-container"></div>
+        <div class="artists-container">
+          <% @artists.each do |artist| %>
+            <div class="artists-card mt-3">
+              <div class="card-body">
+                <div class="row">
+                  <% @artists.each do |artist| %>
+                    <% if artist.images.any? %>
+                      <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-center">
+                          <div class="rounded-circle mr-3 artist-image">
+                            <%= cl_image_tag artist.images.first.key, class: "img-fluid rounded-circle" %>
+                          </div>
+                          <div class="d-flex flex-column">
+                            <div class="name mb-2">
+                              <%= artist.name %>
+                            </div>
+                            <div class="line"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
         <div class="line"></div>
         <div class="centered-links languages">
         Languages:
-        <% @profile.languages.each do |language| %>
+        <% @languages.each do |language| %>
           <%= language.language %>
         <% end %>
         </div>

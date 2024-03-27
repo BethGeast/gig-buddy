@@ -34,7 +34,7 @@
             <div class="row">
               <% @artists.each do |artist| %>
                 <% if artist.images.any? %>
-                  <%= link_to artists_path(name: artist.name), data: { turbo_method: :post } do %>
+                  <%= link_to artists_path(name: artist.name, image_url: artist.images.first['url']), data: { turbo_method: :post } do %>
                     <div class="col-md-4 mb-3">
                       <div class="d-flex align-items-center">
                         <div class="rounded-circle mr-3 artist-image">

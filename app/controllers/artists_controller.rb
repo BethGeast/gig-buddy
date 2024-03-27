@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+  require "open-uri"
   skip_after_action :verify_policy_scoped, only: :index
 
   def index
@@ -18,7 +19,11 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.find_by(name: params[:name])
-    @artist = Artist.create(name: params[:name]) unless @artist
+    unless @artist
+      @artist = Artist.create(name: params[:name])
+      file = URI.open(params[:image_url])
+      @artist.images.attach(io: file, filename: "file_name", content_type: "image/png")
+    end
 
     authorize @artist
 
