@@ -6,7 +6,7 @@
     <% end %>
   </div>
   <h1><%= link_to @match_profile.name.capitalize, profile_path(@match_profile) %></h1>
-  </div>
+</div>
 
 
 <div class="container match"
@@ -27,12 +27,13 @@
     <% end %>
   </div>
 
-<%= simple_form_for [@match, @message], html: { data: { action: "turbo:submit-end->match-subscription#resetForm" }, class: "d-flex" } do |f| %>
-  <%= f.input :content,
-      label: false,
-      placeholder: "Send a message...",
-      wrapper_html: {class: "flex-grow-1"},
-      input_html: { style: "background-color: #303030; color: white; border: none; outline: none;" }
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3 gradient-button" %>
-<% end %>
+  <%= simple_form_for [@match, @message], html: { data: { action: "turbo:submit-end->match-subscription#resetForm" }, class: "d-flex" } do |f| %>
+    <%= f.input :content,
+        label: false,
+        placeholder: "Send a message...",
+        wrapper_html: {class: "flex-grow-1"},
+        input_html: { style: "background-color: #303030; color: white; border: none; outline: none;" }
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3 gradient-button" %>
+  <% end %>
+</div>
