@@ -14,3 +14,4 @@ class SelectedArtistPolicy < ApplicationPolicy
     true
   end
 end
+# comment s I can commit again
