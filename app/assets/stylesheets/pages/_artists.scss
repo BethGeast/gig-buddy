@@ -5,12 +5,21 @@
   color: white;
   font-weight: bold;
   text-decoration: none;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
+
 .artist-image {
-  width: 48px;
-  height: 48px;
   overflow: hidden;
+  padding: 0;
+  img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+  }
 }
 
 .name {
@@ -26,6 +35,9 @@
 .card-body {
   padding: 0 !important;
   text-decoration: none;
+  max-height: 170px;
+  overflow-y: scroll;
+  position: relative;
 }
 
 .card-title {
@@ -36,9 +48,7 @@
   padding: 0 !important;
 }
 
-.artist-image {
-  padding: 0;
-}
+
 
 .name {
   margin-bottom: 0;
@@ -50,6 +60,9 @@
   height: 0.5px;
   margin: 0;
   margin-top: 6px;
+  &.secundary {
+    background-color: #1F1F1F;
+  }
 }
 
 #search {

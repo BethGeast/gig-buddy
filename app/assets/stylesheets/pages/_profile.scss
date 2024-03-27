@@ -7,16 +7,19 @@
     margin-bottom: 0;
     font-weight: bold;
   }
+
+  .profile-name {
+    font-size: 24px;
+  }
+
   .pronouns {
-    font-size: 8px;
+    font-size: 16px;
     opacity: 75%;
     margin-bottom: 0;
   }
-  .birthday , .location{
-    margin-top: 10px;
-    font-size: 10px;
-    margin: 0;
-    margin-top: 16px;
+  .birthday, .location{
+    font-size: 12px;
+    margin: 10px 0;
   }
   p {
     font-size: 12px;
@@ -31,6 +34,7 @@
     margin: 0
   }
   .profile-line{
+    border-bottom: #303030 solid 0.8px;
     width: 342px;
     margin-bottom: 16px;
   }
@@ -56,7 +60,7 @@
 
   .artists-container {
     width: 300px;
-    height: 160px;
+    height: 230px;
     border-radius: 12px;
     background-color: #2D2D2D;
     padding: 20px; /* Adjust padding as needed */
@@ -72,12 +76,15 @@
 
   .edit-profile {
     position: absolute;
-    top: 168px; /* Adjust top position as needed */
-    right: 10px; /* Adjust right position as needed */
+    top: 185px; /* Adjust top position as needed */
+    right: 20px; /* Adjust right position as needed */
     color: white;
+    ::before {
+      font-size: 25px;
+    }
   }
 
-  .profile-back-button {
+  .back-button {
     position: absolute;
     top: 20px; /* Adjust top position as needed */
     left: 20px; /* Adjust right position as needed */
@@ -99,14 +106,15 @@
   }
 
   .centered-link {
+    display: block;
     color: white;
     text-decoration: none;
-
+    text-align: center;
   }
 
   .languages {
-  margin-bottom: 16px;
-  font-size: 12px;
+    font-size: 16px;
+    margin-bottom: 16px;
   }
 
   .logout {

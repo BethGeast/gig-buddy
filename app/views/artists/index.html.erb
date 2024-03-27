@@ -1,6 +1,8 @@
-<%= link_to profile_path(@profile) do %>
-  <i class="fa-solid fa-chevron-left"></i>
-<% end %>
+  <div class="back-button">
+    <%= link_to profile_path(@profile) do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div id="selected-artists-card" class="artists-card custom-card">
@@ -37,7 +39,7 @@
             <div class="row">
               <% @artists.each do |artist| %>
                 <% if artist.images.any? %>
-                  <%= link_to artists_path(name: artist.name), data: { turbo_method: :post } do %>
+                  <%= link_to artists_path(name: artist.name, image_url: artist.images.first['url']), data: { turbo_method: :post } do %>
                     <div class="col-md-4 mb-3">
                       <div class="d-flex align-items-center">
                         <div class="rounded-circle mr-3 artist-image">
