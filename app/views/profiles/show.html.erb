@@ -28,7 +28,7 @@
       <div class="col-md-6 mx-auto">
         <h3 class="profile-name">@<%= @profile.name %></h3>
         <p class="pronouns"><%= @profile.pronouns %></p>
-        <p class="birthday location"><i class="fa-solid fa-location-dot"></i><%= @profile.location %> &nbsp; &nbsp; <i class="fa-solid fa-cake-candles"></i> <%= @profile.age %></p>
+        <p class="birthday location"><i class="fa-solid fa-location-dot"></i> <%= @profile.location %> &nbsp; &nbsp; <i class="fa-solid fa-cake-candles"></i>  <%= @profile.age %></p>
         <div class="profile-line"></div>
         <% if @profile.bio.present? %>
           <p><%= @profile.bio %></p>
