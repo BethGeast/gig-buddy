@@ -25,52 +25,52 @@ pp_10 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_
 
 # 10 Users && 10 Profiles
 user_one = User.create!(email: "beth@gmail.com", password: 123456)
-profile_one = Profile.new(name: "Beth", age: 28, location: "UK", pronouns: "she/her", user_id: user_1.id, bio: "I like dogs more than most people and I make sure everyone knows that")
+profile_one = Profile.new(name: "Beth", age: 28, location: "UK", pronouns: "she/her", user_id: user_one.id, bio: "I like dogs more than most people and I make sure everyone knows that")
 profile_one.photos.attach(io: pp_1, filename: "beth.png", content_type: "image/png")
 profile_one.save
 
 user_two = User.create!(email: "simone@gmail.com", password: 123456)
-profile_two = Profile.new(name: "Simone", age: 19, location: "Aruba", pronouns: "he/him", user_id: user_2.id, bio: "Aruba Aruba Aruba, Aruba is the best, LOL")
+profile_two = Profile.new(name: "Simone", age: 19, location: "Aruba", pronouns: "he/him", user_id: user_two.id, bio: "Aruba Aruba Aruba, Aruba is the best, LOL")
 profile_two.photos.attach(io: pp_2, filename: "simone.png", content_type: "image/png")
 profile_two.save
 
 user_three = User.create!(email: "lucas@gmail.com", password: 123456)
-profile_three = Profile.new(name: "Lucas", age: 34, location: "Germany", pronouns: "he/him", user_id: user_3.id, bio: "Looking to meet nice people and make some new music loving friends!")
+profile_three = Profile.new(name: "Lucas", age: 34, location: "Germany", pronouns: "he/him", user_id: user_three.id, bio: "Looking to meet nice people and make some new music loving friends!")
 profile_three.photos.attach(io: pp_3, filename: "lucas.png", content_type: "image/png")
 profile_three.save
 
 user_four = User.create!(email: "luca@gmail.com", password: 123456)
-profile_four = Profile.new(name: "Luca", age: 25, location: "Brazil", pronouns: "he/him", user_id: user_4.id, bio: "Quite literally the nicest person you will ever meet")
+profile_four = Profile.new(name: "Luca", age: 25, location: "Brazil", pronouns: "he/him", user_id: user_four.id, bio: "Quite literally the nicest person you will ever meet")
 profile_four.photos.attach(io: pp_4, filename: "luca.png", content_type: "image/png")
 profile_four.save
 
 user_five = User.create!(email: "dareos@gmail.com", password: 123456)
-profile_five = Profile.new(name: "Dareos", age: 32, location: "France", pronouns: "he/him", user_id: user_5.id, bio: "Funny but will definitely judge you :dareos-deal-with-it:")
+profile_five = Profile.new(name: "Dareos", age: 32, location: "France", pronouns: "he/him", user_id: user_five.id, bio: "Funny but will definitely judge you :dareos-deal-with-it:")
 profile_five.photos.attach(io: pp_5, filename: "dareos.png", content_type: "image/png")
 profile_five.save
 
 user_six = User.create!(email: "leonardo@gmail.com", password: 123456)
-profile_six = Profile.new(name: "Leonardo", age: 20, location: "Italy", pronouns: "he/him", user_id: user_6.id, bio: "I write music but shh. I'm basically Beyonce")
+profile_six = Profile.new(name: "Leonardo", age: 20, location: "Italy", pronouns: "he/him", user_id: user_six.id, bio: "I write music but shh. I'm basically Beyonce")
 profile_six.photos.attach(io: pp_6, filename: "leonardo.png", content_type: "image/png")
 profile_six.save
 
 user_seven = User.create!(email: "arbi@gmail.com", password: 123456)
-profile_seven = Profile.new(name: "Arbi", age: 30, location: "Italy", pronouns: "he/him", user_id: user_7.id, bio: "AC Milan 4eva :aw-yeah:")
+profile_seven = Profile.new(name: "Arbi", age: 30, location: "Italy", pronouns: "he/him", user_id: user_seven.id, bio: "AC Milan 4eva :aw-yeah:")
 profile_seven.photos.attach(io: pp_7, filename: "arbi.png", content_type: "image/png")
 profile_seven.save
 
 user_eight = User.create!(email: "jess@gmail.com", password: 123456)
-profile_eight = Profile.new(name: "Jess", age: 28, location: "Portugal", pronouns: "she/her", user_id: user_8.id, bio: "If you have a cute pet I will like you")
+profile_eight = Profile.new(name: "Jess", age: 28, location: "Portugal", pronouns: "she/her", user_id: user_eight.id, bio: "If you have a cute pet I will like you")
 profile_eight.photos.attach(io: pp_8, filename: "jess.png", content_type: "image/png")
 profile_eight.save
 
 user_nine = User.create!(email: "grazia@gmail.com", password: 123456)
-profile_nine = Profile.new(name: "Grazia", age: 27, location: "Italy", pronouns: "she/her", user_id: user_9.id, bio: "Ciao sweeties!")
+profile_nine = Profile.new(name: "Grazia", age: 27, location: "Italy", pronouns: "she/her", user_id: user_nine.id, bio: "Ciao sweeties!")
 profile_nine.photos.attach(io: pp_9, filename: "grazia.png", content_type: "image/png")
 profile_nine.save
 
 user_ten = User.create!(email: "paulyn@gmail.com", password: 123456)
-profile_ten = Profile.new(name: "Paulyn", age: 26, location: "France", pronouns: "she/her", user_id: user_10.id, bio: "A real coding machine")
+profile_ten = Profile.new(name: "Paulyn", age: 26, location: "France", pronouns: "she/her", user_id: user_ten.id, bio: "A real coding machine")
 profile_ten.photos.attach(io: pp_10, filename: "paulyn.png", content_type: "image/png")
 profile_ten.save
 
