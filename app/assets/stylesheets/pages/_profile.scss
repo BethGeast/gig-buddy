@@ -76,9 +76,12 @@
 
   .edit-profile {
     position: absolute;
-    top: 168px; /* Adjust top position as needed */
-    right: 10px; /* Adjust right position as needed */
+    top: 185px; /* Adjust top position as needed */
+    right: 20px; /* Adjust right position as needed */
     color: white;
+    ::before {
+      font-size: 25px;
+    }
   }
 
   .back-button {
