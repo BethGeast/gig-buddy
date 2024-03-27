@@ -21,8 +21,8 @@
           <% else %>
             <div class="profile-photo"></div>
           <% end %>
-          <div class="username"><%= profile.name %></div>
-          <div class="pronouns"><%= profile.pronouns %></div>
+          <div class="username"><%= profile.name.capitalize %></div>
+          <div class="pronouns"><%= profile.pronouns.capitalize %></div>
           <div class="profile-details">
             <p class="age location"><i class="fa-solid fa-cake-candles"></i> <%= profile.age %> &nbsp; &nbsp; <i class="fa-solid fa-location-dot"></i> <%= profile.location.capitalize %></p>
           </div>

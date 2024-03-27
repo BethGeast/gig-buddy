@@ -11,6 +11,7 @@ class SelectedArtistPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    true
   end
 end
+# comment s I can commit again

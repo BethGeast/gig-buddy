@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update]
-  skip_before_action :has_profile?, only: :new
+  skip_before_action :has_profile?, only: %i[new create]
 
   def show
     authorize @profile
@@ -16,9 +16,9 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     authorize @profile
     if @profile.save
-      redirect_to profile_path(@profile), notice: 'New profile successfully created!'
       @language_ids = profile_strong_params[:language_ids]
       @language_ids.each { |id| SelectedLanguage.create(profile: @profile, language_id: id) }
+      redirect_to artists_path, notice: 'New profile successfully created!'
     else
       render :new, status: :unprocessable_entity
     end
