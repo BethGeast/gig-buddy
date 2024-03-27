@@ -278,8 +278,16 @@ top_spotify_artists_2023 = [
   'Arctic Monkeys'
 ]
 
+RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
 artists = top_spotify_artists_2023.map do |name|
-  artist = Artist.create!(name: name)
+  artist = Artist.new(name: name)
+  spotify_results = RSpotify::Artist.search(name)
+  image_url = spotify_results.first.images.first["url"]
+
+  file = URI.open(image_url)
+  artist.images.attach(io: file, filename: "artist_photo.png", content_type: "image/png")
+
+  artist.save!
   puts "  #{name} created"
   artist
 end
