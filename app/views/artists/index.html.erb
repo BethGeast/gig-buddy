@@ -1,6 +1,8 @@
-<%= link_to profile_path(@profile) do %>
-  <i class="fa-solid fa-chevron-left"></i>
-<% end %>
+  <div class="back-button">
+    <%= link_to profile_path(@profile) do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div id="selected-artists-card" class="artists-card custom-card">
