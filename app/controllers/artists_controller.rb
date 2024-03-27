@@ -13,6 +13,7 @@ class ArtistsController < ApplicationController
     # def index
       # @artists = Artist.all
   end
+
   # def show
    # @artist = Artist.find(params[:id])
   # end
@@ -26,7 +27,6 @@ class ArtistsController < ApplicationController
     end
 
     authorize @artist
-
     @selected_artist = SelectedArtist.create(profile: current_user.profile, artist: @artist)
     redirect_to artists_path(search: params[:name])
   end

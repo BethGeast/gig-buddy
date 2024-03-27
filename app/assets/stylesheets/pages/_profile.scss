@@ -33,7 +33,8 @@
   .row {
     margin: 0
   }
-  .line{
+  .profile-line{
+    border-bottom: #303030 solid 0.8px;
     width: 342px;
     margin-bottom: 16px;
   }
@@ -59,7 +60,7 @@
 
   .artists-container {
     width: 300px;
-    height: 160px;
+    height: 230px;
     border-radius: 12px;
     background-color: #2D2D2D;
     padding: 20px; /* Adjust padding as needed */
@@ -80,7 +81,7 @@
     color: white;
   }
 
-  .profile-back-button {
+  .back-button {
     position: absolute;
     top: 20px; /* Adjust top position as needed */
     left: 20px; /* Adjust right position as needed */
@@ -102,9 +103,10 @@
   }
 
   .centered-link {
+    display: block;
     color: white;
     text-decoration: none;
-
+    text-align: center;
   }
 
   .languages {

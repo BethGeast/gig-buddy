@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
   # delete '/profiles/:id', to: 'profiles#destroy', as: :delete_profile
-  resources :selected_artists, only: %i[new create]
+  resources :selected_artists, only: %i[new create index]
   resources :artists, only: %i[index create]
   resources :selected_languages, only: %i[new create]
   resources :matches, only: %i[index destroy show]
