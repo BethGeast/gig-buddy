@@ -1,4 +1,6 @@
-<%= link_to "<", :back %>
+<%= link_to :back do %>
+  <i class="fa-solid fa-chevron-left"></i>
+<% end %>
 <div class="container d-flex justify-content-center align-items-center vh-100"
      data-controller="artists">
   <div id="selected-artists-card" class="artists-card custom-card" data-target="artists.selectedArtistsCard">
@@ -8,6 +10,7 @@
       <ul>
         <% if @selected_artists.present? %>
           <% @selected_artists.each do |artist| %>
+            <%= image_tag artist.images.first['url'], class: "img-fluid rounded-circle" %>
             <li><%= artist.name %></li>
           <% end %>
         <% else %>
