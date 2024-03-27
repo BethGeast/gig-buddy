@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.name{
+.name {
   margin-left: 16px;
 }
 
@@ -73,12 +73,10 @@
   border: 0;
   transition: font-size 0.3s ease;
 }
+
 .input-group-text:hover {
-  font-size: 20px ;
-
+  font-size: 20px;
 }
-
-
 
 .input-group input[type="text"].form-control:focus {
   outline: none !important;

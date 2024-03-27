@@ -6,8 +6,8 @@
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
   </div>
-  <h1>Chat with <%= link_to @match_profile.name.capitalize, profile_path(@match_profile) %></h1>
-</div>
+  <h1><%= link_to @match_profile.name.capitalize, profile_path(@match_profile) %></h1>
+  </div>
 
 
 <div class="container match"
