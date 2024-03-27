@@ -20,7 +20,7 @@
 
   <body>
 
-    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "matches" && params[:action] == "show" || params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "profiles" %>
+    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "matches" && params[:action] == "show" || params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "profiles" && params[:action] == "new" %>
 
       <%= render "shared/navbar" %>
     <% end %>

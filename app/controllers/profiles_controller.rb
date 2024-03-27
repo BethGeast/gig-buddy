@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update]
-  skip_before_action :has_profile?, only: :new
+  skip_after_action :has_profile?, only: %i[new create]
 
   def show
     authorize @profile
