@@ -71,6 +71,15 @@ h1 {
   margin-left: 128px;
 }
 
+.delete-match {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
 .gradient-button {
   background: linear-gradient(to right, #A301FC, #7541FF);
   border: none;

@@ -1,4 +1,7 @@
 <div id="message" <%= message.id %>>
   <i><%= message.user.profile.name %></i>
   <p><%= message.content %></p>
+  <div class="message-info">
+    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </div>
 </div>

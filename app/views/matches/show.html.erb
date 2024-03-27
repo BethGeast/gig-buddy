@@ -6,6 +6,13 @@
     <% end %>
   </div>
   <h1><%= link_to @match_profile.name.capitalize, profile_path(@match_profile) %></h1>
+
+  <div class="delete-match">
+    <%= link_to delete_match_path, data: { turbo_method: :delete, turbo_confirm: "Sure you want to delete this match?" } do %>
+      <i class="fa-solid fa-user-slash"></i>
+    <% end %>
+  </div>
+
 </div>
 
 
@@ -19,9 +26,6 @@
       <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
         <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
           <%= render "messages/message", message: message %>
-          <div class="message-info">
-            <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-          </div>
         </div>
       </div>
     <% end %>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :selected_artists, only: %i[new create index]
   resources :artists, only: %i[index create]
   resources :selected_languages, only: %i[new create]
-  resources :matches, only: %i[index destroy show]
+  resources :matches, only: %i[index show]
+  delete '/matches/:id', to: 'matches#destroy', as: :delete_match
   resources :swiper, only: :index
 end
