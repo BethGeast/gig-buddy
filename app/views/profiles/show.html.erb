@@ -1,3 +1,7 @@
+<% if current_user != @profile.user %>
+  <%= link_to "<", :back %>
+<% end %>
+
 <% @profile.languages.each do |language| %>
   <%= language.language %>
 <% end %>
