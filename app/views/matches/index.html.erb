@@ -1,8 +1,20 @@
-<h1>Chat with your matches</h1>
-<% @matches.each do |match| %>
-  <% if match.first_profile == current_user.profile %>
-    <%= link_to match.second_profile.name, match_path(match) %>
-  <% else %>
-    <%= link_to match.first_profile.name, match_path(match) %>
-  <% end %>
-<% end %>
+<div class="logo">
+  <%= image_tag "Logo.png", size: '75x54'%>
+</div>
+<div class="matches">
+
+  <ul class="match-list">
+    <% @matches.each do |match| %>
+    <div class="match-container">
+      <li class="match-item">
+        <% if match.first_profile == current_user.profile %>
+          <%= link_to match.second_profile.name.capitalize, match_path(match), class: "match-link" %>
+        <% else %>
+          <%= link_to match.first_profile.name.capitalize, match_path(match), class: "match-link" %>
+        <% end %>
+        <div class="line"></div>
+      </li>
+    </div>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,27 @@
+.matches {
+  h2{
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .match-list {
+    list-style: none;
+    padding: 0;
+  }
+  .match-link {
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    color: rgb(255, 255, 255); /* or any other desired color */
+    display: block;
+    padding: 10px 0 10px;
+    margin-top: 24px;
+  }
+
+  .match-container {
+    display: flex;
+    justify-content: center;
+  }
+
+
+}
