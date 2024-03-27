@@ -50,7 +50,7 @@ profile_five.photos.attach(io: pp_5, filename: "dareos.png", content_type: "imag
 profile_five.save
 
 user_six = User.create!(email: "leonardo@gmail.com", password: 123456)
-profile_six = Profile.new(name: "Leonardo", age: 20, location: "Italy", pronouns: "he/him", user_id: user_six.id, bio: "I write music but shh. I'm basically Beyonce")
+profile_six = Profile.new(name: "Leonardo", age: 30, location: "Italy", pronouns: "he/him", user_id: user_six.id, bio: "I write music but shh. I'm basically Beyonce")
 profile_six.photos.attach(io: pp_6, filename: "leonardo.png", content_type: "image/png")
 profile_six.save
 
