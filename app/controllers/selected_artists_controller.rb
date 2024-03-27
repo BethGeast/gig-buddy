@@ -11,7 +11,7 @@ class SelectedArtistsController < ApplicationController
     @artist_ids.each do |artist_id|
       SelectedArtist.create(artist_id: artist_id, profile: @profile)
     end
-    redirect_to root_path
+    redirect_to artists_path
   end
 
   def index

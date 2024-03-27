@@ -4,7 +4,13 @@
   border: 0;
   color: white;
   font-weight: bold;
+  text-decoration: none;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
+
 
 .artist-image {
   width: 48px;
@@ -24,6 +30,7 @@
 
 .card-body {
   padding: 0 !important;
+  text-decoration: none;
 }
 
 .card-title {
