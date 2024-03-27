@@ -150,8 +150,9 @@ selected_languages_twentyfour = SelectedLanguage.create(profile: profile_ten, la
 selected_languages_twentyfive = SelectedLanguage.create(profile: profile_ten, language: language_five)
 
 # matches created for profile one only currently
-match_one = Match.create(first_profile_id: profile_one, second_profile_id: profile_four, matched: true)
-match_two = Match.create(first_profile_id: profile_one, second_profile_id: profile_five, matched: true)
-match_three = Match.create(first_profile_id: profile_one, second_profile_id: profile_three, matched: true)
-match_four = Match.create(first_profile_id: profile_one, second_profile_id: profile_eight, matched: true)
-match_five = Match.create(first_profile_id: profile_one, second_profile_id: profile_nine, matched: true)
+match_one = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_four.id, matched: true)
+match_two = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_five.id, matched: true)
+match_three = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_three.id, matched: true)
+match_four = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_eight.id, matched: true)
+match_five = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_nine.id, matched: true)
+match_six = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_six.id, matched: true)
