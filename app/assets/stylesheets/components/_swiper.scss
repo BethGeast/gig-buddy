@@ -59,3 +59,35 @@
 .location {
   margin-left: 16px;
 }
+
+.swiper-container {
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Adjust the margin as needed */
+  }
+
+  .circle-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Ensure border-radius is applied */
+    background-color: #ffffff00;
+    border: 3px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 50px; /* Adjust the margin as needed */
+    cursor: pointer;
+    /* Apply gradient border */
+    border-image: linear-gradient(to right, #7541FF, #A301FC) 1;
+}
+
+  .circle-button i {
+    font-size: 30px;
+    background: linear-gradient(45deg, #7541FF, #A301FC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+}

@@ -1,5 +1,5 @@
 <div class="logo">
-<%= image_tag "Logo.png", size: '75x54'%>
+  <%= image_tag "Logo.png", size: '75x54'%>
 </div>
 
 <div class="swiper-container" data-controller="swiper">
@@ -8,30 +8,31 @@
       <div class="swiper-slide profile-card-<%= index %> <%= index == 0 ? "currentCard" : "d-none" %>" data-swiper-target="card">
         <!-- Profile card content here -->
 
-          <div class="card">
-            <% if profile.photos.present? %>
-              <div class="profile-photo">
-                <%= image_tag(profile.photos.first, alt: "Profile Photo") %>
-              </div>
-            <% else %>
-              <div class="profile-photo"></div>
-            <% end %>
-            <div class="username"><%= profile.name.capitalize %></div>
-            <div class="pronouns"><%= profile.pronouns.capitalize %></div>
-            <div class="profile-details">
-              <p class="age location"><i class="fa-solid fa-cake-candles"></i> <%= profile.age %> &nbsp; &nbsp; <i class="fa-solid fa-location-dot"></i> <%= profile.location.capitalize %></p>
+        <div class="card">
+          <% if profile.photos.present? %>
+            <div class="profile-photo">
+              <%= image_tag(profile.photos.first, alt: "Profile Photo") %>
             </div>
-            <%= simple_form_for [profile, Match.new], data: { action: "submit->swiper#swipeRight", form_id: profile.id } do |f| %>
-              <%= f.submit "Match! :)" %>
-            <% end %>
-
-            <button data-action="click->swiper#swipeLeft">Not today :/</button>
+          <% else %>
+            <div class="profile-photo"></div>
+          <% end %>
+          <div class="username"><%= profile.name.capitalize %></div>
+          <div class="pronouns"><%= profile.pronouns.capitalize %></div>
+          <div class="profile-details">
+            <p class="age location"><i class="fa-solid fa-cake-candles"></i> <%= profile.age %> &nbsp; &nbsp; <i class="fa-solid fa-location-dot"></i> <%= profile.location.capitalize %></p>
           </div>
+        </div>
+
+        <div class="button-container">
+          <button class="circle-button not-today-button" data-action="click->swiper#swipeLeft"><i class="fas fa-times"></i></button>
+          <%= simple_form_for [profile, Match.new], data: { action: "submit->swiper#swipeRight", form_id: profile.id } do |f| %>
+            <button class="circle-button match-button" type="submit"><i class="fas fa-heart"></i></button>
+          <% end %>
+        </div>
 
       </div>
     <% end %>
   </div>
-
 
   <button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" data-swiper-target="modalButton">
     Launch demo modal
