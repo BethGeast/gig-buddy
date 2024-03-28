@@ -1,5 +1,7 @@
 require "open-uri"
 
+puts "Cleaning database"
+
 Message.destroy_all
 Match.destroy_all
 SelectedLanguage.destroy_all
@@ -9,150 +11,315 @@ Language.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-# profile pictures
-pp_1 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706122226/onx7fjjj7rpw01xbtfqm.jpg")
-pp_2 = URI.open("https://avatars.githubusercontent.com/u/121980772?v=4")
-pp_3 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706546691/agx4fisvbsekibkxdk57.jpg")
-pp_4 = URI.open("https://avatars.githubusercontent.com/u/81879181?v=4")
-pp_5 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1610540256/mbf03tpkmvwrgufdaezz.jpg")
-pp_6 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1681676887/czsjfcjm1fzrwsrulpwi.jpg")
-pp_7 = URI.open("https://avatars.githubusercontent.com/u/26385065?v=4")
-pp_8 = URI.open("https://avatars.githubusercontent.com/u/68972820?v=4")
-pp_9 = URI.open("https://avatars.githubusercontent.com/u/103331969?v=4")
-pp_10 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1711050823/ex1bhrov5s0glrvqsycj.jpg")
+puts "All done! Let's get started."
 
+users_info = {
+  "Abdullahi Abdulkadir" => {
+    image_url: "https://avatars.githubusercontent.com/u/106488802?v=4",
+    pronouns: "he/his"
+  },
+  "Luisa Aslanidis" => {
+    image_url: "https://avatars.githubusercontent.com/u/113432253?v=4",
+    pronouns: "she/her"
+  },
+  "Andrea Basili" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706097314/niq8kelrngzgz3jwo6ov.jpg",
+    pronouns: "he/his"
+  },
+  "Barbara Bouillicot" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706094472/dxgcvpm46fwiwphanzu7.jpg",
+    pronouns: "she/her"
+  },
+  "Ningjie Cao" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706104311/p9b8ditxhagse3mtemtw.jpg",
+    pronouns: "he/his"
+  },
+  "João Crespo" => {
+    image_url: "https://avatars.githubusercontent.com/u/125745069?v=4",
+    pronouns: "he/his"
+  },
+  "Beth Geast" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706122226/onx7fjjj7rpw01xbtfqm.jpg",
+    pronouns: "she/her"
+  },
+  "Matthew Gregory" => {
+    image_url: "https://avatars.githubusercontent.com/u/98674394?v=4",
+    pronouns: "he/his"
+  },
+  "Joshua Koch" => {
+    image_url: "https://avatars.githubusercontent.com/u/157491156?v=4",
+    pronouns: "he/his"
+  },
+  "Sora Mustafa" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706516629/qk3yy5xj9sd9gucnbbrn.jpg",
+    pronouns: "she/her"
+  },
+  "Simone Napoli" => {
+    image_url: "https://avatars.githubusercontent.com/u/121980772?v=4",
+    pronouns: "he/his"
+  },
+  "Lucas Neto" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706546691/agx4fisvbsekibkxdk57.jpg",
+    pronouns: "he/his"
+  },
+  "Antonio Pereira" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706094813/njguvgngq7uzk7dymjjh.jpg",
+    pronouns: "he/his"
+  },
+  "Jack Richmond" => {
+    image_url: "https://avatars.githubusercontent.com/u/157632505?v=4",
+    pronouns: "he/his"
+  },
+  "Sam Ridsdale" => {
+    image_url: "https://avatars.githubusercontent.com/u/157513689?v=4",
+    pronouns: "he/his"
+  },
+  "Muhammad Rizky" => {
+    image_url: "https://avatars.githubusercontent.com/u/154841727?v=4",
+    pronouns: "he/his"
+  },
+  "Gabriel Teodorescu" => {
+    image_url: "https://avatars.githubusercontent.com/u/157483639?v=4",
+    pronouns: "he/his"
+  },
+  "Boy Tillekens" => {
+    image_url: "https://avatars.githubusercontent.com/u/124054707?v=4",
+    pronouns: "he/his"
+  },
+  "Yusuke Huuskonen" => {
+    image_url: "https://avatars.githubusercontent.com/u/45196270?v=4",
+    pronouns: "he/his"
+  },
+  "Maria Tomsa" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706105013/q1z17m9fk7np9orpwj7n.jpg",
+    pronouns: "she/her"
+  },
+  "Charlie Wilson" => {
+    image_url: "https://avatars.githubusercontent.com/u/8373377?v=4",
+    pronouns: "he/his"
+  },
+  "Jiahui Zheng" => {
+    image_url: "https://avatars.githubusercontent.com/u/55398609?v=4",
+    pronouns: "she/her"
+  },
+  "Laura Zocca" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1706098043/iufvotbnr5uk94ftmao2.jpg",
+    pronouns: "she/her"
+  },
+  "Luca Severo" => {
+    image_url: "https://avatars.githubusercontent.com/u/81879181?v=4",
+    pronouns: "he/his"
+  },
+  "Alexander Dubovoy" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1582630583/ky7b8bb3ogcx0lpdgkvd.jpg",
+    pronouns: "he/his"
+  },
+  "Arbi Velaj" => {
+    image_url: "https://avatars.githubusercontent.com/u/26385065?v=4",
+    pronouns: "he/his"
+  },
+  "Claire Demont" => {
+    image_url: "https://avatars.githubusercontent.com/u/45850166?v=4",
+    pronouns: "she/her"
+  },
+  "Dareos Khalili" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1610540256/mbf03tpkmvwrgufdaezz.jpg",
+    pronouns: "he/his"
+  },
+  "Dari Goldman" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697034747/wrvo00dixtdjrhrnqfeg.jpg",
+    pronouns: "she/her"
+  },
+  "Grazia Cabras" => {
+    image_url: "https://avatars.githubusercontent.com/u/103331969?v=4",
+    pronouns: "she/her"
+  },
+  "Jess Carvalho" => {
+    image_url: "https://avatars.githubusercontent.com/u/68972820?v=4",
+    pronouns: "she/her"
+  },
+  "Pedro Miranda" => {
+    image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1592696437/u31nytay6nl7hofmwg6s.jpg",
+    pronouns: "he/his"
+  },
+  "Andre Menezes" => {
+    image_url: "https://avatars.githubusercontent.com/u/80218755?v=4",
+    pronouns: "he/his"
+  }
+}
 
+cities = [
+  "Tokyo",
+  "Delhi",
+  "Shanghai",
+  "Dhaka",
+  "Sao Paulo",
+  "Cairo",
+  "Mexico City",
+  "Beijing",
+  "Mumbai",
+  "Osaka",
+  "Chongqing",
+  "Karachi",
+  "Kinshasa",
+  "Lagos",
+  "Istanbul",
+  "Buenos Aires",
+  "Kolkata",
+  "Manila",
+  "Guangzhou",
+  "Tianjin",
+  "Lahore",
+  "Bangalore",
+  "Rio De Janeiro",
+  "Shenzhen",
+  "Moscow",
+  "Chennai",
+  "Bogota",
+  "Jakarta",
+  "Lima",
+  "Paris"
+]
 
-# 10 Users && 10 Profiles
-user_one = User.create!(email: "beth@gmail.com", password: 123456)
-profile_one = Profile.new(name: "Beth", age: 28, location: "UK", pronouns: "she/her", user_id: user_one.id, bio: "I like dogs more than most people and I make sure everyone knows that")
-profile_one.photos.attach(io: pp_1, filename: "beth.png", content_type: "image/png")
-profile_one.save
+bios = [
+  "Yoo! I love to rave and I'm looking for some party people. Eat, sleep, rave, repeat",
+  "Yeeehaw, cowboy! I love country music",
+  "Hi girrrl, do you listen to pop divas too? It's a match!",
+  "Greetings, friend. Would you be so kind to walk with me to the Opera?",
+  "I wanna Rock n' Roll all night! And party everyday",
+  "Don't worry about a thing. Ready to enjoy some reggae vibes?"
+]
 
-user_two = User.create!(email: "simone@gmail.com", password: 123456)
-profile_two = Profile.new(name: "Simone", age: 19, location: "Aruba", pronouns: "he/him", user_id: user_two.id, bio: "Aruba Aruba Aruba, Aruba is the best, LOL")
-profile_two.photos.attach(io: pp_2, filename: "simone.png", content_type: "image/png")
-profile_two.save
+puts "Users and Profiles:"
+users = []
+profiles = []
 
-user_three = User.create!(email: "lucas@gmail.com", password: 123456)
-profile_three = Profile.new(name: "Lucas", age: 34, location: "Germany", pronouns: "he/him", user_id: user_three.id, bio: "Looking to meet nice people and make some new music loving friends!")
-profile_three.photos.attach(io: pp_3, filename: "lucas.png", content_type: "image/png")
-profile_three.save
+users_info.each do |name, info|
+  splitted_name = name.downcase.split
+  email = splitted_name[0] + "@" + splitted_name[1] + ".com"
+  user = User.create!(email: email, password: "123456")
+  users << user
+  puts "  User: #{email} created"
 
-user_four = User.create!(email: "luca@gmail.com", password: 123456)
-profile_four = Profile.new(name: "Luca", age: 25, location: "Brazil", pronouns: "he/him", user_id: user_four.id, bio: "Quite literally the nicest person you will ever meet")
-profile_four.photos.attach(io: pp_4, filename: "luca.png", content_type: "image/png")
-profile_four.save
+  profile = Profile.new(user: user, name: name, age: rand(22..35), location: cities.sample, pronouns: info[:pronouns], bio: bios.sample)
+  file = URI.open(info[:image_url])
+  profile.photos.attach(io: file, filename: "profile_photo.png", content_type: "image/png")
+  profile.save!
+  profiles << profile
+  puts "  Profile: #{name} created"
+  puts ""
+end
 
-user_five = User.create!(email: "dareos@gmail.com", password: 123456)
-profile_five = Profile.new(name: "Dareos", age: 32, location: "France", pronouns: "he/him", user_id: user_five.id, bio: "Funny but will definitely judge you :dareos-deal-with-it:")
-profile_five.photos.attach(io: pp_5, filename: "dareos.png", content_type: "image/png")
-profile_five.save
+puts "---"
+puts "Languages:"
 
-user_six = User.create!(email: "leonardo@gmail.com", password: 123456)
-profile_six = Profile.new(name: "Leonardo", age: 30, location: "Italy", pronouns: "he/him", user_id: user_six.id, bio: "I write music but shh. I'm basically Beyonce")
-profile_six.photos.attach(io: pp_6, filename: "leonardo.png", content_type: "image/png")
-profile_six.save
+language_names = ["English", "German", "Spanish", "Italian", "Portuguese"]
 
-user_seven = User.create!(email: "arbi@gmail.com", password: 123456)
-profile_seven = Profile.new(name: "Arbi", age: 30, location: "Italy", pronouns: "he/him", user_id: user_seven.id, bio: "AC Milan 4eva :aw-yeah:")
-profile_seven.photos.attach(io: pp_7, filename: "arbi.png", content_type: "image/png")
-profile_seven.save
+languages = language_names.map do |name|
+  language = Language.create!(language: name)
+  puts "  #{name} created"
+  language
+end
 
-user_eight = User.create!(email: "jess@gmail.com", password: 123456)
-profile_eight = Profile.new(name: "Jess", age: 28, location: "Portugal", pronouns: "she/her", user_id: user_eight.id, bio: "If you have a cute pet I will like you")
-profile_eight.photos.attach(io: pp_8, filename: "jess.png", content_type: "image/png")
-profile_eight.save
+puts "---"
 
-user_nine = User.create!(email: "grazia@gmail.com", password: 123456)
-profile_nine = Profile.new(name: "Grazia", age: 27, location: "Italy", pronouns: "she/her", user_id: user_nine.id, bio: "Ciao sweeties!")
-profile_nine.photos.attach(io: pp_9, filename: "grazia.png", content_type: "image/png")
-profile_nine.save
+puts "Artists:"
 
-user_ten = User.create!(email: "paulyn@gmail.com", password: 123456)
-profile_ten = Profile.new(name: "Paulyn", age: 26, location: "France", pronouns: "she/her", user_id: user_ten.id, bio: "A real coding machine")
-profile_ten.photos.attach(io: pp_10, filename: "paulyn.png", content_type: "image/png")
-profile_ten.save
+top_spotify_artists_2023 = [
+  'The Weeknd',
+  'Taylor Swift',
+  'Ariana Grande',
+  'Rihanna',
+  'Drake',
+  'Kanye West',
+  'Justin Bieber',
+  'Dua Lipa',
+  'Coldplay',
+  'Bruno Mars',
+  'Beyoncé',
+  'SZA',
+  'David Guetta',
+  'Ed Sheeran',
+  'Eminem',
+  'Bad Bunny',
+  'Miley Cyrus',
+  'Marshmello',
+  'Travis Scott',
+  'Calvin Harris',
+  'Billie Eilish',
+  'Doja Cat',
+  '21 Savage',
+  'Maroon 5',
+  'Shakira',
+  'Imagine Dragons',
+  'Tate McRae',
+  'Olivia Rodrigo',
+  'Post Malone',
+  'Lady Gaga',
+  'Katy Perry',
+  'Harry Styles',
+  'Lana Del Rey',
+  'Playboi Carti',
+  'Adele',
+  'Sia',
+  'Peso Pluma',
+  'Benson Boone',
+  'Karol G',
+  'Nicki Minaj',
+  'J Balvin',
+  'Tiësto',
+  'Future',
+  'Metro Boomin',
+  'Kendrick Lamar',
+  'Ty Dolla Sign',
+  'Queen',
+  'Khalid',
+  'Elton John',
+  'Arctic Monkeys'
+]
 
-language_one = Language.new(language: "Dutch")
-language_two = Language.new(language: "English")
-language_three = Language.new(language: "Finnish")
-language_four = Language.new(language: "Flemish")
-language_five = Language.new(language: "French")
-language_six = Language.new(language: "German")
-language_seven = Language.new(language: "Italian")
-language_eight = Language.new(language: "Portuguese")
-language_nine = Language.new(language: "Spanish")
-language_ten = Language.new(language: "Swedish")
+RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
+artists = top_spotify_artists_2023.map do |name|
+  artist = Artist.new(name: name)
+  spotify_results = RSpotify::Artist.search(name)
+  image_url = spotify_results.first.images.first["url"]
 
-artist_one = Artist.create(name: "Pablo Vittar")
-artist_two = Artist.create(name:"Beach Bunny")
-artist_three = Artist.create(name: "Tuisku")
-artist_four = Artist.create(name: "Adele")
-artist_five = Artist.create(name: "Rihanna")
-artist_six = Artist.create(name: "Kylie Minogue")
-artist_seven = Artist.create(name: "Spice Girls")
-artist_eight = Artist.create(name: "Beyonce")
-artist_nine = Artist.create(name: "Britney Spears")
-artist_ten = Artist.create(name: "Shakira")
+  file = URI.open(image_url)
+  artist.images.attach(io: file, filename: "artist_photo.png", content_type: "image/png")
 
-# each user likes at least 1 artist
+  artist.save!
+  puts "  #{name} created"
+  artist
+end
 
-selected_artists_one = SelectedArtist.create(profile: profile_one, artist: artist_two)
-selected_artists_two = SelectedArtist.create(profile: profile_one, artist: artist_three)
-selected_artists_three = SelectedArtist.create(profile: profile_one, artist: artist_nine)
-selected_artists_four = SelectedArtist.create(profile: profile_one, artist: artist_ten)
-selected_artists_five = SelectedArtist.create(profile: profile_two, artist: artist_five)
-selected_artists_six = SelectedArtist.create(profile: profile_two, artist: artist_seven)
-selected_artists_seven = SelectedArtist.create(profile: profile_two, artist: artist_ten)
-selected_artists_eight = SelectedArtist.create(profile: profile_three, artist: artist_one)
-selected_artists_nine = SelectedArtist.create(profile: profile_three, artist: artist_eight)
-selected_artists_ten = SelectedArtist.create(profile: profile_four, artist: artist_five)
-selected_artists_eleven = SelectedArtist.create(profile: profile_four, artist: artist_ten)
-selected_artists_twelve = SelectedArtist.create(profile: profile_five, artist: artist_six)
-selected_artists_thirteen = SelectedArtist.create(profile: profile_five, artist: artist_seven)
-selected_artists_fourteen = SelectedArtist.create(profile: profile_five, artist: artist_nine)
-selected_artists_fifteen = SelectedArtist.create(profile: profile_six, artist: artist_three)
-selected_artists_sixteen = SelectedArtist.create(profile: profile_seven, artist: artist_ten)
-selected_artists_seventeen = SelectedArtist.create(profile: profile_seven, artist: artist_five)
-selected_artists_eighteen = SelectedArtist.create(profile: profile_eight, artist: artist_four)
-selected_artists_nineteen = SelectedArtist.create(profile: profile_eight, artist: artist_nine)
-selected_artists_twenty = SelectedArtist.create(profile: profile_nine, artist: artist_nine)
-selected_artists_twentyone = SelectedArtist.create(profile: profile_nine, artist: artist_ten)
-selected_artists_twentytwo = SelectedArtist.create(profile: profile_ten, artist: artist_four)
-selected_artists_twentythree = SelectedArtist.create(profile: profile_ten, artist: artist_eight)
+puts "---"
 
-# each user speaks at least 1 language
-selected_languages_one = SelectedLanguage.create(profile: profile_one, language: language_two)
-selected_languages_two = SelectedLanguage.create(profile: profile_one, language: language_three)
-selected_languages_three = SelectedLanguage.create(profile: profile_two, language: language_two)
-selected_languages_four = SelectedLanguage.create(profile: profile_two, language: language_one)
-selected_languages_five = SelectedLanguage.create(profile: profile_two, language: language_four)
-selected_languages_six = SelectedLanguage.create(profile: profile_three, language: language_one)
-selected_languages_seven = SelectedLanguage.create(profile: profile_three, language: language_two)
-selected_languages_eight = SelectedLanguage.create(profile: profile_three, language: language_six)
-selected_languages_nine = SelectedLanguage.create(profile: profile_three, language: language_eight)
-selected_languages_ten = SelectedLanguage.create(profile: profile_four, language: language_two)
-selected_languages_eleven = SelectedLanguage.create(profile: profile_four, language: language_eight)
-selected_languages_twelve = SelectedLanguage.create(profile: profile_four, language: language_nine)
-selected_languages_thirteen = SelectedLanguage.create(profile: profile_five, language: language_two)
-selected_languages_fourteen = SelectedLanguage.create(profile: profile_five, language: language_five)
-selected_languages_fifteen = SelectedLanguage.create(profile: profile_five, language: language_six)
-selected_languages_sixteen = SelectedLanguage.create(profile: profile_six, language: language_two)
-selected_languages_seventeen = SelectedLanguage.create(profile: profile_six, language: language_seven)
-selected_languages_eighteen = SelectedLanguage.create(profile: profile_seven, language: language_two)
-selected_languages_nineteen = SelectedLanguage.create(profile: profile_seven,language: language_seven)
-selected_languages_twenty = SelectedLanguage.create(profile: profile_eight, language: language_two)
-selected_languages_twentyone = SelectedLanguage.create(profile: profile_eight, language: language_eight)
-selected_languages_twentytwo = SelectedLanguage.create(profile: profile_nine, language: language_two)
-selected_languages_twentythree = SelectedLanguage.create(profile: profile_nine, language: language_seven)
-selected_languages_twentyfour = SelectedLanguage.create(profile: profile_ten, language: language_two)
-selected_languages_twentyfive = SelectedLanguage.create(profile: profile_ten, language: language_five)
+puts "SelectedArtists and SelectedLanguages"
 
-# matches created for profile one only currently
-match_one = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_four.id, matched: true)
-match_two = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_five.id, matched: true)
-match_three = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_three.id, matched: true)
-match_four = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_eight.id, matched: true)
-match_five = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_nine.id, matched: true)
-match_six = Match.create(first_profile_id: profile_one.id, second_profile_id: profile_six.id, matched: true)
+profiles.each do |profile|
+  20.times do |n|
+    artist = artists.sample
+    if SelectedArtist.create(profile: profile, artist: artist)
+      puts "  SelectedArtist: #{profile.name} likes #{artist.name}"
+    end
+  end
+
+  languages.each do |language|
+    SelectedLanguage.create!(profile: profile, language: language)
+  end
+  "  SelectedLanguages: #{profile.name} speaks all 5 languages"
+end
+
+puts "---"
+puts "Matches"
+
+artists.each do |artist|
+  profiles = artist.profiles.to_a
+
+  pairs = profiles.combination(2).to_a
+  pairs.each do |pair|
+    if Match.create(first_profile: pair.first, second_profile: pair.last, matched: false)
+      puts "It's a match! #{pair.first.name} && #{pair.last.name}"
+    end
+  end
+end

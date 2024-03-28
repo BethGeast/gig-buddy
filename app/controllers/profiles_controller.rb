@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
   skip_before_action :has_profile?, only: %i[new create]
 
   def show
+    @languages = @profile.languages
+    @artists = @profile.artists
     authorize @profile
   end
 
