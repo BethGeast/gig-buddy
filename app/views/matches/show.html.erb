@@ -5,10 +5,8 @@
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
   </div>
-  <%# <div class="profile-picture">
-    <% @match.profile.photos.each do |photo| %>
-      <%# <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
-    <%# <% end %>
+  <div class="profile-picture">
+    <%= cl_image_tag @their_profile.photos.first.key, height: 100, width: 100, crop: :fill %>
   </div>
 
   <h1><%= link_to @match_profile.name.capitalize, profile_path(@match_profile) %></h1>
