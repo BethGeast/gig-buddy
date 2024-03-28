@@ -5,12 +5,7 @@
 <div class="swiper-container" data-controller="swiper">
   <div class="swiper-wrapper">
     <% @profiles.each_with_index do |profile, index| %>
-      <div class="swiper-slide profile-card-<%= index %>" data-profile-id="<%= profile.id %>">
-        <div class="d-none">
-          <%= simple_form_for [profile, Match.new], data: { swiper_target: "form", form_id: profile.id } do |f| %>
-            <%= f.submit %>
-          <% end %>
-        </div>
+      <div class="swiper-slide profile-card-<%= index %> <%= index == 0 ? "currentCard" : "d-none" %>" data-swiper-target="card">
         <!-- Profile card content here -->
 
           <div class="card">
@@ -26,10 +21,30 @@
             <div class="profile-details">
               <p class="age location"><i class="fa-solid fa-cake-candles"></i> <%= profile.age %> &nbsp; &nbsp; <i class="fa-solid fa-location-dot"></i> <%= profile.location.capitalize %></p>
             </div>
+            <%= simple_form_for [profile, Match.new], data: { action: "submit->swiper#swipeRight", form_id: profile.id } do |f| %>
+              <%= f.submit "Match! :)" %>
+            <% end %>
+
+            <button data-action="click->swiper#swipeLeft">Not today :/</button>
           </div>
 
-        </div>
       </div>
     <% end %>
+  </div>
+
+
+  <button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" data-swiper-target="modalButton">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body" data-swiper-target="modal">
+          ...
+        </div>
+      </div>
+    </div>
   </div>
 </div>

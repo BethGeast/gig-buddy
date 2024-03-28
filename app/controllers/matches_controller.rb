@@ -34,7 +34,6 @@ class MatchesController < ApplicationController
     # get profile id of match user and current_user.profile
     @profile = current_user.profile
     @match_profile = Profile.find(params[:profile_id])
-    # match = find_match
     @match = @profile.find_match(@match_profile)
     # if match, match.update where matched = true
     respond_to do |format|
