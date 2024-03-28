@@ -24,7 +24,7 @@
             <ul>
               <% profile.selected_artists.each do |artist| %>
                 <% if artist.artist.images.any? %>
-                <div class="d-flex align-items-baseline justify-content-between mb-3">
+                <div class="d-flex align-items-baseline mb-3">
                   <div class="rounded-circle mr-3 artist-image">
                     <%= cl_image_tag artist.artist.images.first.key, class: "img-fluid rounded-circle" %>
                   </div>
