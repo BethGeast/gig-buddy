@@ -18,7 +18,9 @@
     color: rgb(255, 255, 255); /* or any other desired color */
     display: block;
     padding: 10px 0 10px;
-    margin-top: 24px;
+    margin-top: 0px;
+    margin-left: 24px;
+    margin-bottom: 0px;
   }
 
   .match-container {
@@ -26,14 +28,29 @@
     justify-content: center;
   }
 
-  .matches-profile-picture{
-    height: 100px;
-    width: 100px;
-    background-color: rgba(255, 255, 255, 0);
+  .match-item {
+    margin: 0px;
+  }
+
+  // .matches-profile-picture{
+  //   height: 70px;
+  //   width: 70px;
+  //   background-color: rgba(255, 255, 255, 0);
+  //   border-radius: 50%;
+  //   position: relative;
+  //   object-fit: cover;
+  //   object-position: center;
+  //   top: 124px;
+  //   overflow: hidden;
+  //   border: 0;
+  // }
+
+  .match-list img {
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     position: relative;
-    top: 124px;
-    overflow: hidden;
-    border: 0;
+    top: 52px;
+    margin-left: 40px;
   }
 }

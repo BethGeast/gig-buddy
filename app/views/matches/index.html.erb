@@ -4,7 +4,8 @@
 <div class="matches">
 
   <ul class="match-list">
-    <% @matches.each do |match| %>
+    <% @matches.each_with_index do |match, index| %>
+      <%= cl_image_tag @photos[index].key %>
     <div class="match-container">
       <li class="match-item">
         <% if match.first_profile == current_user.profile %>

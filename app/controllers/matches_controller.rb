@@ -24,6 +24,10 @@ class MatchesController < ApplicationController
   def index
     # show all possible matches
     @matches = policy_scope(Match)
+    @profile = current_user.profile
+    @photos = @matches.map do |match|
+      (match.profiles - [@profile]).first.photos.first
+    end
   end
 
   def create
@@ -50,7 +54,9 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
+    @profiles = @match.profiles
     @profile = current_user.profile
+    @their_profile = (@profiles - [@profile]).first
     @match_profile = (@match.profiles - [@profile]).last
     @message = Message.new
     authorize @match
