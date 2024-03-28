@@ -1,14 +1,16 @@
-<h3>edit profile here</h3>
+<div class="container">
+  <h3>tell us about you</h3>
 
-<%= simple_form_for @profile do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :location %>
-  <%= f.input :pronouns %>
-  <%= f.input :bio %>
-  <%= f.input :language_ids, collection: Language.all, label_method: :language, value_method: :id, input_html: { multiple: true, data: {controller: "tom-select"} }, include_hidden: false %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :name %>
+    <%= f.input :age %>
+    <%= f.input :location %>
+    <%= f.input :pronouns %>
+    <%= f.input :bio %>
+    <%= f.input :language_ids, collection: Language.all, label_method: :language, value_method: :id, input_html: { multiple: true, data: {controller: "tom-select"} }, include_hidden: false %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit %>
+  <% end %>
 
-<%= link_to "Back", profile_path(@profile) %>
+  <%= link_to "Back", profile_path(@profile) %>
+</div>
