@@ -68,7 +68,7 @@ class MatchesController < ApplicationController
 
     @match = Match.find(params[:id])
     @match.destroy
-    redirect_to root_path, status: :see_other, notice: "Match deleted"
+    redirect_to matches_path, status: :see_other, notice: "Match deleted"
     authorize @match
   end
 end
