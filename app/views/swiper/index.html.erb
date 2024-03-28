@@ -13,19 +13,21 @@
         </div>
         <!-- Profile card content here -->
 
-        <div class="card">
-          <% if profile.photos.present? %>
-            <div class="profile-photo">
-              <img src="<%= profile.photos.first %>" alt="Profile Photo">
+          <div class="card">
+            <% if profile.photos.present? %>
+              <div class="profile-photo">
+                <%= image_tag(profile.photos.first, alt: "Profile Photo") %>
+              </div>
+            <% else %>
+              <div class="profile-photo"></div>
+            <% end %>
+            <div class="username"><%= profile.name.capitalize %></div>
+            <div class="pronouns"><%= profile.pronouns.capitalize %></div>
+            <div class="profile-details">
+              <p class="age location"><i class="fa-solid fa-cake-candles"></i> <%= profile.age %> &nbsp; &nbsp; <i class="fa-solid fa-location-dot"></i> <%= profile.location.capitalize %></p>
             </div>
-          <% else %>
-            <div class="profile-photo"></div>
-          <% end %>
-          <div class="username"><%= profile.name.capitalize %></div>
-          <div class="pronouns"><%= profile.pronouns.capitalize %></div>
-          <div class="profile-details">
-            <p class="age location"><i class="fa-solid fa-cake-candles"></i> <%= profile.age %> &nbsp; &nbsp; <i class="fa-solid fa-location-dot"></i> <%= profile.location.capitalize %></p>
           </div>
+
         </div>
       </div>
     <% end %>

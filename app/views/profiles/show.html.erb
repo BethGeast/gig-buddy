@@ -39,7 +39,9 @@
         <div class="artists-container">
           <%= link_to artists_path, class: "centered-link mb-1" do %>
             My Artists
+            <% if policy(@profile).edit? %>
             <i class="fa-solid fa-pencil"></i>
+            <% end %>
           <% end %>
           <div class="card-body">
             <% @artists.each do |artist| %>
