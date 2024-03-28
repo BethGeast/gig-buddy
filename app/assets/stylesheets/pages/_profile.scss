@@ -1,7 +1,7 @@
 .container {
   background-color: #1F1F1F;
   color: white;
-  h3 {
+h3 {
     font-size: 16px;
     margin-top: 75px;
     margin-bottom: 0;
@@ -96,9 +96,12 @@
 
   .fa-pencil {
     text-decoration: none;
-    color: white;
+    background-image: linear-gradient(135deg, rgba(117, 65, 255, 0.8), rgba(163, 1, 252, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 14px;
   }
+
 
   .centered-links {
     text-align: center;
