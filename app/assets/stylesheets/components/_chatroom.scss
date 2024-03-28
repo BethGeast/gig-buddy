@@ -9,7 +9,7 @@
 
   .messages {
     height: 100%;
-    overflow: hidden;
+    overflow: scroll;
     padding: 1rem;
   }
 
@@ -69,6 +69,15 @@
 h1 {
   margin: 0;
   margin-left: 128px;
+}
+
+.delete-match {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
 }
 
 .gradient-button {

@@ -28,6 +28,7 @@ class ArtistsController < ApplicationController
 
     authorize @artist
     @selected_artist = SelectedArtist.create(profile: current_user.profile, artist: @artist)
-    redirect_to artists_path(search: params[:name])
+    redirect_to artists_path, notice: "Artist added to profile!"
+    # redirect_to artists_path(search: params[:name])
   end
 end

@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
     if @profile.save
       @language_ids = profile_strong_params[:language_ids]
       @language_ids.each { |id| SelectedLanguage.create(profile: @profile, language_id: id) }
-      redirect_to artists_path, notice: 'New profile successfully created!'
+      redirect_to artists_path, notice: 'New profile successfully created! Now add some of your favourite artists'
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
   def update
     authorize @profile
     @profile.update(profile_strong_params)
-    redirect_to root_path, notice: 'Profile updated!'
+    redirect_to profile_path(@profile), notice: 'Profile updated!'
   end
 
   private
