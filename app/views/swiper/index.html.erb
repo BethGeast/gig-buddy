@@ -20,6 +20,23 @@
           <div class="pronouns"><%= profile.pronouns.capitalize %></div>
           <div class="profile-details">
             <p class="age location"><i class="fa-solid fa-cake-candles"></i> <%= profile.age %> &nbsp; &nbsp; <i class="fa-solid fa-location-dot"></i> <%= profile.location.capitalize %></p>
+            <p class="swiper-card-bio"><%= profile.bio %></p>
+            <ul>
+              <% profile.selected_artists.each do |artist| %>
+                <% if artist.artist.images.any? %>
+                <div class="d-flex align-items-baseline justify-content-between mb-3">
+                  <div class="rounded-circle mr-3 artist-image">
+                    <%= cl_image_tag artist.artist.images.first.key, class: "img-fluid rounded-circle" %>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <div class="swiper-card-artist-name">
+                      <%= artist.artist.name %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
 
