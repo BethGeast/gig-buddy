@@ -16,7 +16,7 @@
         <div class="card">
           <% if profile.photos.present? %>
             <div class="profile-photo">
-              <img src="<%= profile.photos.first %>" alt="Profile Photo">
+              <%= image_tag(profile.photos.first, alt: "Profile Photo") %>
             </div>
           <% else %>
             <div class="profile-photo"></div>
