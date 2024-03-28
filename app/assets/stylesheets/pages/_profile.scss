@@ -1,7 +1,6 @@
 .container {
   background-color: #1F1F1F;
   color: white;
-  overflow: scroll;
 
 h3 {
     font-size: 16px;
@@ -43,11 +42,11 @@ h3 {
 }
 
   .banner {
-    height: 164px;
+    height: 124px;
     width: auto;
     display: flex;
     justify-content: center;
-    background-color: #303030;
+    background: linear-gradient(135deg, rgba(117, 65, 255, 0.8), rgba(163, 1, 252, 0.8));
   }
   .profile-picture{
     height: 100px;
@@ -55,7 +54,7 @@ h3 {
     background-color: rgba(255, 255, 255, 0);
     border-radius: 50%;
     position: relative;
-    top: 124px;
+    top: 84px;
     overflow: hidden;
     border: 0;
   }
