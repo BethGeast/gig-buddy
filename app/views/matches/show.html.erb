@@ -5,9 +5,10 @@
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
   </div>
-  <div class="chatroom-profile-picture">
-    <%= cl_image_tag @their_profile.photos.first.key, height: 50, width: 50, crop: :fill %>
-  </div>
+<div class="chatroom-profile-picture" style="border-radius: 50%; overflow: hidden;">
+  <%= cl_image_tag @their_profile.photos.first.key, height: 50, width: 50, crop: :fill %>
+</div>
+
 
   <h1><%= link_to @match_profile.name.capitalize, profile_path(@match_profile) %></h1>
 
