@@ -6,7 +6,7 @@
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div id="selected-artists-card" class="artists-card custom-card">
-    <div class="card-body d-flex flex-column justify-content-center">
+    <div class="artists-card-body d-flex flex-column justify-content-center">
       <!-- Selected artists card content goes here -->
       <h2>Add Artists</h2>
       <%# <ul> %>
@@ -35,7 +35,7 @@
       <% end %>
       <% if @artists.present? %>
         <div class="artists-card mt-3">
-          <div class="card-body">
+          <div class="artists-card-body">
             <div class="row">
               <% @artists.each do |artist| %>
                 <% if artist.images.any? %>
