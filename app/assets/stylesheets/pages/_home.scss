@@ -39,14 +39,14 @@
 
   .home-btn-primary {
     padding: 16px 12px;
-    align-self: flex-start;
     font-size: 24px;
     font-weight: bold;
     border-radius: 16px;
     background: linear-gradient(to bottom, #A301FC, #7541FF);
     border: 0;
     width: fit-content;
-
+    margin-top: 200px;
+    align-items: center;
   }
 
   .home-btn-secondary {
