@@ -1,6 +1,8 @@
 .container {
   background-color: #1F1F1F;
   color: white;
+  overflow: scroll;
+
 h3 {
     font-size: 16px;
     margin-top: 75px;
@@ -116,7 +118,7 @@ h3 {
   }
 
   .languages {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 16px;
   }
 
