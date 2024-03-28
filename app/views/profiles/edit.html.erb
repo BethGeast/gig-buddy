@@ -1,14 +1,36 @@
-<h3>edit profile here</h3>
+<div class="profile-new-container">
+  <div class="logo">
+    <%= image_tag "Logo.png", size: '75x54'%>
+  </div>
 
-<%= simple_form_for @profile do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :location %>
-  <%= f.input :pronouns %>
-  <%= f.input :bio %>
-  <%= f.input :language_ids, collection: Language.all, label_method: :language, value_method: :id, input_html: { multiple: true, data: {controller: "tom-select"} }, include_hidden: false %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="profile-new-container">
+  <h3>Edit profile </h3>
 
-<%= link_to "Back", profile_path(@profile) %>
+  <%= simple_form_for @profile, html: { class: "profile-form" } do |f| %>
+    <div class="form-group">
+      <%= f.input :name, placeholder: "Name", label: false, input_html: { class: "styled-input" } %>
+      <%= f.input :pronouns, placeholder: "Pronouns", label: false, input_html: { class: "styled-input" } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :bio, placeholder: "Bio", label: false, input_html: { class: "styled-input" } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :location, placeholder: "Location", label: false, input_html: { class: "styled-input" } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :age, placeholder: "Age", label: false, input_html: { class: "styled-input" } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :language_ids, collection: Language.all, label: "Languages", label_method: :language, value_method: :id, input_html: { multiple: true, data: {controller: "tom-select"} }, include_hidden: false, label_html: {class: "languages-label"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true, autofocus: true, label: "Profile Picture", label_html: {class: "profile-picture-label"} %>
+    </div>
+    <%= f.button :submit, "Save", class: "submit-button" %>
+  <% end %>
+
+  <%= link_to profile_path(@profile), class: "back-button" do %>
+    <i class="fas fa-chevron-left"></i>
+  <% end %>
+
+</div>

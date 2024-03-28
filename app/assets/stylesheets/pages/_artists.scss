@@ -44,7 +44,7 @@
   margin-bottom: 0 !important;
 }
 
-.form-control, .btn {
+.form-control .btn {
   padding: 0 !important;
 }
 
@@ -97,8 +97,4 @@
   outline: none !important;
   border-color: transparent !important;
   box-shadow: none !important;
-}
-
-.form-control {
-  color: white;
 }
