@@ -1,0 +1,19 @@
+.its-a-match {
+  text-align: center;
+  img {
+    border-radius: 50px;
+  }
+  h1, i {
+    background: linear-gradient(135deg, #7541FF, #A301FC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 50px;
+
+}
+.modal{
+  --bs-modal-bg: #000000;
+  border: 0;
+}
