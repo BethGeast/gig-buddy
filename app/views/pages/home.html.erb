@@ -7,21 +7,15 @@
       <h1>Find Your <span style="color: #A301FC;">Gig</span><span style="color: #7541FF;">Buddy</span> Today</h1>
 
       <p>Creating Connections Through Live Music</p>
-      <% if current_user %>
+
+    </div>
+
+    <div class="home-sign-in-text">
+          <% if current_user %>
         <%= link_to "Get Started", swiper_index_path, class: "home-btn home-btn-primary home-btn-get-started d-block", id: "home-getstartedbtn" %>
       <% else %>
         <%= link_to "Get Started", new_user_registration_path, class: "home-btn home-btn-primary home-btn-get-started d-block", id: "home-getstartedbtn" %>
       <% end %>
-    </div>
-    <div class="home-button-container">
-      <%= button_tag class: "home-btn home-btn-secondary home-btn-spotify" do %>
-        <i class="fab fa-spotify"></i>
-      <% end %>
-      <%= button_tag class: "home-btn home-btn-secondary home-btn-google" do %>
-        <i class="fab fa-google"></i>
-      <% end %>
-    </div>
-    <div class="home-sign-in-text">
       <p>Already have an account? <strong><%= link_to "Sign in", new_user_session_path %></strong></p>
     </div>
   </div>

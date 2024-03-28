@@ -1,4 +1,4 @@
-
+<div class="header-container">
 <div class="header">
   <div class="back">
     <%= link_to matches_path do %>
@@ -11,8 +11,8 @@
     <%= link_to delete_match_path, data: { turbo_method: :delete, turbo_confirm: "Sure you want to delete this match?" } do %>
       <i class="fa-solid fa-user-slash"></i>
     <% end %>
+    </div>
   </div>
-
 </div>
 
 
