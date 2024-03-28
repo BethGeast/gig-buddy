@@ -32,6 +32,12 @@
   padding: 0;
 }
 
+.artists-card-body {
+  padding: 0 !important;
+  text-decoration: none;
+  max-height: 170px;
+  position: relative;
+}
 .card-body {
   padding: 0 !important;
   text-decoration: none;
